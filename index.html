@@ -6,18 +6,23 @@
     <title>Title</title>
 </head>
 <body>
-    <header>
-        <div>
-            <button>News</button>
-            <button>About me</button>
-            <button>Ask for help</button>
+    <header class="page-header">
+        <div class="wrapper page-header_wrapper">
+            <button  class="page-header_btn" id="download-news-button">Show News</button>
+            <select  class="page-header_selection" id="channel-select" disabled>
+                <option value="loading">Loading...</option>
+            </select>
         </div>
     </header>
     <main>
-        <div id="output">Some Text</div>
+        <div class="wrapper">
+            <div id="output">Some Text</div>
+        </div>
     </main>
     <footer>
-        <small>&copy; Copyright 2018, Front Camp Created</small>
+        <div class="wrapper">
+            <small>&copy; Copyright 2018, Front Camp Created</small>
+        </div>
     </footer>
     <script src="./src/index.js"></script>
 </body>

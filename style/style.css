@@ -70,6 +70,17 @@ summary {
 
 /*common styles start*/
 body {
-    background-color: #555;
+    background-color: #222;
+}
+
+.wrapper {
+    width: 1024px;
+    margin: auto;
 }
 /*common styles end*/
+/*header start*/
+.page-header_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+/*header end*/
