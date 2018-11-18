@@ -1,29 +1,40 @@
 const API_KEY = 'b7898b8ae1f042849321a38b58c68df0';
+let selectedArticle;
 
 window.onload = function() {
     const url = `https://newsapi.org/v2/sources?apiKey=${API_KEY}`;
     const req = new Request(url);
-    const textField = document.getElementById('output');
+    document.getElementById('download-news-button').addEventListener('click', downloadNews);
 
     fetch(req)
         .then(response => response.json())
         .then(answer => {
-            const chanelsList = getChanelsList(answer.sources);
-            const ul = transformToHTMLChanelsList(chanelsList);
-            textField.appendChild(ul);
+            const channelsNamesList = getChannelsList(answer.sources);
+            setChannelsNamesAsSelectOptions(channelsNamesList);
         });
 };
 
-function getChanelsList(newsSources) {
+function getChannelsList(newsSources) {
     return newsSources.map(source => source.id);
 }
 
-function transformToHTMLChanelsList(chanels) {
-    const ul = document.createElement('ul');
-    chanels.forEach(chanel => {
-        const li = document.createElement('li');
-        li.innerHTML = chanel;
-        ul.appendChild(li);
+function setChannelsNamesAsSelectOptions(channelsNames) {
+    const select = document.getElementById('channel-select');
+    channelsNames.forEach(chanelName => {
+        const option = document.createElement('option');
+        option.innerHTML = chanelName;
+        option.setAttribute('value', chanelName);
+        select.appendChild(option);
     });
-    return ul;
+    select.removeAttribute('disabled');
+    return select;
+}
+
+function downloadNews() {
+    applySelectedChannel();
+}
+
+function applySelectedChannel() {
+    const select = document.getElementById('channel-select');
+    selectedArticle = [...select.options].filter(option => option.selected)[0].value;
 }
