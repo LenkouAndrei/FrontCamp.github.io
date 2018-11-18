@@ -1,12 +1,11 @@
 const API_KEY = 'b7898b8ae1f042849321a38b58c68df0';
-let selectedArticle;
+let selectedChanel;
 
 window.onload = function() {
-    const url = `https://newsapi.org/v2/sources?apiKey=${API_KEY}`;
-    const req = new Request(url);
     document.getElementById('download-news-button').addEventListener('click', downloadNews);
 
-    fetch(req)
+    const request = formRequest(API_KEY);
+    fetch(request)
         .then(response => response.json())
         .then(answer => {
             const channelsNamesList = getChannelsList(answer.sources);
@@ -36,5 +35,10 @@ function downloadNews() {
 
 function applySelectedChannel() {
     const select = document.getElementById('channel-select');
-    selectedArticle = [...select.options].filter(option => option.selected)[0].value;
+    selectedChanel = [...select.options].filter(option => option.selected)[0].value;
+}
+
+function formRequest(apiKey, channelName='') {
+    const url = `https://newsapi.org/v2/${channelName === '' ? 'sources' : 'everything'}?${channelName === '' ? '' : `sources=${channelName}`}apiKey=${apiKey}`;
+    return new Request(url);
 }
