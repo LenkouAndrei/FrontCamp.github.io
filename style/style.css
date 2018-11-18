@@ -67,10 +67,16 @@ summary {
     display: list-item;
 }
 /*normalize end*/
-
 /*common styles start*/
 body {
+    display: flex;
+    flex-flow: column;
+    min-height: 100vh;
     background-color: #ccc;
+}
+
+main {
+    flex: 1;
 }
 
 .wrapper {
