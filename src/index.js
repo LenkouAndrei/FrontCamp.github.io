@@ -1,5 +1,6 @@
 const API_KEY = 'b7898b8ae1f042849321a38b58c68df0';
-const pageSize = 10;
+const PAGE_SIZE = 10;
+const AMOUNT_OF_ELEMENTS_IN_ROW = 4;
 let selectedChanel;
 
 window.onload = function() {
@@ -45,16 +46,16 @@ function applySelectedChannel() {
 }
 
 function formRequest(apiKey, channelName='') {
-    const url = `https://newsapi.org/v2/${channelName === '' ? 'sources' : 'everything'}?${channelName === '' ? '' : `sources="${channelName}"&pageSize=${pageSize}`}&apiKey=${apiKey}`;
+    const url = `https://newsapi.org/v2/${channelName === '' ? 'sources' : 'everything'}?${channelName === '' ? '' : `sources="${channelName}"&pageSize=${PAGE_SIZE}`}&apiKey=${apiKey}`;
     return new Request(url);
 }
 
 function renderNews(articlesNews) {
-    console.log(articlesNews);
     const articleContainer = document.getElementById('output');
+    articleContainer.innerHTML = '';
     let docFragment = document.createDocumentFragment();
 
-    articlesNews.forEach(articleNews => {
+    articlesNews.forEach((articleNews, articleIndex) => {
         const articleHTML = document.createElement('article');
         const h2 = document.createElement('h2');
         const figure = document.createElement('figure');
@@ -70,7 +71,7 @@ function renderNews(articlesNews) {
         h2.innerHTML = articleNews.title;
         if (img !== null) {
             img.setAttribute('src', articleNews.urlToImage);
-            img.setAttribute('width', 200);
+            img.setAttribute('width', 230);
         }
         figcaption.innerHTML = articleNews.description;
         time.innerHTML = formatTimeToReadable(articleNews.publishedAt);
@@ -97,6 +98,7 @@ function renderNews(articlesNews) {
         articleHTML.appendChild(footer);
 
         docFragment.appendChild(articleHTML);
+        clearFloatAfterNthElement(docFragment, articleIndex, AMOUNT_OF_ELEMENTS_IN_ROW);
     });
 
     articleContainer.appendChild(docFragment);
@@ -106,46 +108,10 @@ function formatTimeToReadable(timeInternationalFormat) {
     return timeInternationalFormat.split('T').join(' ').split(0, timeInternationalFormat.lastIndexOf(':'));
 }
 
-function createArticle(articleNews) {
-    const articleHTML = document.createElement('article');
-    const h2 = document.createElement('h2');
-    const figure = document.createElement('figure');
-    const img = (articleNews.urlToImage !== null) ? document.createElement('img') : null;
-    const figcaption = document.createElement('figcaption');
-    const footer = document.createElement('footer');
-    const time = document.createElement('time');
-    const spanAuthor = document.createElement('span');
-    const spanSource = document.createElement('span');
-    const div = document.createElement('div');
-    const p = (articleNews.content !== null) ? document.createElement('p') : null;
-
-    h2.innerHTML = articleNews.title;
-    if (img !== null) {
-        img.setAttribute('src', articleNews.urlToImage);
+function clearFloatAfterNthElement(containerElement, currentElementNumber, amountOfElementsInRow) {
+    if (currentElementNumber !== 0 && currentElementNumber % amountOfElementsInRow === (amountOfElementsInRow - 1)) {
+        const divClear = document.createElement('div');
+        divClear.setAttribute('class', 'clearfix');
+        containerElement.appendChild(divClear);
     }
-    figcaption.innerHTML = articleNews.description;
-    time.innerHTML = formatTimeToReadable(articleNews.publishedAt);
-    time.setAttribute('datetime', articleNews.publishedAt);
-    spanAuthor.innerHTML = articleNews.author;
-    spanSource.innerHTML = articleNews.source.name;
-    if (p !== null) {
-        p.innerHTML = articleNews.content;
-    }
-
-    div.appendChild(spanAuthor);
-    div.appendChild(spanSource);
-    footer.appendChild(time);
-    footer.appendChild(div);
-    articleHTML.appendChild(h2);
-    if (img !== null) {
-        figure.appendChild(img);
-    }
-    figure.appendChild(figcaption);
-    articleHTML.appendChild(figure);
-    if (p !== null) {
-        articleHTML.appendChild(p);
-    }
-    articleHTML.appendChild(footer);
-
-    return articleHTML;
 }
