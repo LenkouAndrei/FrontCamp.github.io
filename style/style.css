@@ -75,6 +75,14 @@ body {
     background-color: #ccc;
 }
 
+.clearfix {
+    clear: both;
+}
+
+figure {
+    margin: 0;
+}
+
 main {
     flex: 1;
 }
@@ -90,3 +98,21 @@ main {
     justify-content: space-between;
 }
 /*header end*/
+/*main start*/
+#output article {
+    width: 240px;
+    margin: 2px;
+    padding: 5px;
+    box-sizing: border-box;
+    float: left;
+}
+
+#output article footer {
+    display: flex;
+}
+
+#output article div {
+    display: flex;
+    flex-flow: column;
+}
+/*main end*/
