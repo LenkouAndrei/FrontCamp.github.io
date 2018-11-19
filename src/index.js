@@ -1,5 +1,5 @@
 const API_KEY = 'b7898b8ae1f042849321a38b58c68df0';
-const PAGE_SIZE = 10;
+const AMOUNT_OF_NEWS = 10;
 const AMOUNT_OF_ELEMENTS_IN_ROW = 4;
 let selectedChanel;
 
@@ -34,7 +34,8 @@ function setChannelsNamesAsSelectOptions(channelsNames) {
 
 function downloadNews() {
     applySelectedChannel();
-    const request = formRequest(API_KEY, selectedChanel);
+    const newsAmount = parseInt(document.getElementById('news-amount').value) || AMOUNT_OF_NEWS;
+    const request = formRequest(API_KEY, selectedChanel, newsAmount);
     fetch(request)
         .then(response => response.json())
         .then(answer => renderNews(answer.articles));
@@ -45,8 +46,8 @@ function applySelectedChannel() {
     selectedChanel = [...select.options].filter(option => option.selected)[0].value;
 }
 
-function formRequest(apiKey, channelName='') {
-    const url = `https://newsapi.org/v2/${channelName === '' ? 'sources' : 'everything'}?${channelName === '' ? '' : `sources="${channelName}"&pageSize=${PAGE_SIZE}`}&apiKey=${apiKey}`;
+function formRequest(apiKey, channelName='', newsAmount=AMOUNT_OF_NEWS) {
+    const url = `https://newsapi.org/v2/${channelName === '' ? 'sources' : 'everything'}?${channelName === '' ? '' : `sources="${channelName}"&pageSize=${newsAmount}`}&apiKey=${apiKey}`;
     return new Request(url);
 }
 
