@@ -57,6 +57,7 @@ function renderNews(articlesNews) {
 
     articlesNews.forEach((articleNews, articleIndex) => {
         const articleHTML = document.createElement('article');
+        const link = document.createElement('a');
         const h2 = document.createElement('h2');
         const figure = document.createElement('figure');
         const img = (articleNews.urlToImage !== null) ? document.createElement('img') : null;
@@ -65,6 +66,7 @@ function renderNews(articlesNews) {
         const time = document.createElement('time');
         const spanAuthor = document.createElement('span');
         const spanSource = document.createElement('span');
+        const spanReadMore = document.createElement('span');
         const div = document.createElement('div');
         const p = (articleNews.content !== null) ? document.createElement('p') : null;
 
@@ -79,24 +81,30 @@ function renderNews(articlesNews) {
         spanAuthor.innerHTML = articleNews.author;
         spanSource.innerHTML = articleNews.source.name;
         if (p !== null) {
-            p.innerHTML = articleNews.content;
+            const content = articleNews.content;
+            p.innerHTML = content.slice(0, content.lastIndexOf('['));
         }
+        spanReadMore.innerHTML = 'Read more...';
+        spanReadMore.setAttribute('role', 'link');
+        link.setAttribute('href', articleNews.url);
 
         div.appendChild(spanAuthor);
         div.appendChild(spanSource);
         footer.appendChild(time);
         footer.appendChild(div);
-        articleHTML.appendChild(h2);
+        link.appendChild(h2);
         if (img !== null) {
             figure.appendChild(img);
         }
         figure.appendChild(figcaption);
-        articleHTML.appendChild(figure);
+        link.appendChild(figure);
         if (p !== null) {
-            articleHTML.appendChild(p);
+            link.appendChild(p);
         }
-        articleHTML.appendChild(footer);
+        link.appendChild(spanReadMore);
+        link.appendChild(footer);
 
+        articleHTML.appendChild(link);
         docFragment.appendChild(articleHTML);
         clearFloatAfterNthElement(docFragment, articleIndex, AMOUNT_OF_ELEMENTS_IN_ROW);
     });
@@ -105,7 +113,7 @@ function renderNews(articlesNews) {
 }
 
 function formatTimeToReadable(timeInternationalFormat) {
-    return timeInternationalFormat.split('T').join(' ').split(0, timeInternationalFormat.lastIndexOf(':'));
+    return timeInternationalFormat.split('T').join(' ').slice(0, timeInternationalFormat.lastIndexOf(':'));
 }
 
 function clearFloatAfterNthElement(containerElement, currentElementNumber, amountOfElementsInRow) {
