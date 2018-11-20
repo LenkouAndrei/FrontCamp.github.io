@@ -44,7 +44,7 @@ class FieldContainer extends FieldWithText {
         this.clear();
         let docFragment = this.createFragment();
 
-        articlesNews.forEach((articleNews, articleIndex) => {
+        articlesNews.forEach(articleNews => {
             const article = new Article(articleNews);
             const articleHTML = article.createArticleHTML();
             docFragment.appendChild(articleHTML);
