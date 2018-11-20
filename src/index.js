@@ -16,8 +16,8 @@ class FieldWithText {
 }
 
 class FieldContainer extends FieldWithText {
-    constructor(text, tagName, id) {
-        super(text, tagName);
+    constructor({id, ...propertiesToSuper}) {
+        super(propertiesToSuper.text, propertiesToSuper.tagName);
         this.id = id;
     }
 
@@ -35,14 +35,6 @@ class FieldContainer extends FieldWithText {
         document.getElementById(this.id).appendChild(elementHTMLWithContent);
     }
 
-    clearFloatAfterNthElement(containerElement, currentElementNumber, amountOfElementsInRow) {
-        if (currentElementNumber !== 0 && currentElementNumber % amountOfElementsInRow === (amountOfElementsInRow - 1)) {
-            const divClear = document.createElement('div');
-            divClear.setAttribute('class', 'clearfix');
-            containerElement.appendChild(divClear);
-        }
-    }
-
     createFragment() {
         const fragment = document.createDocumentFragment();
         return fragment;
@@ -56,7 +48,6 @@ class FieldContainer extends FieldWithText {
             const article = new Article(articleNews);
             const articleHTML = article.createArticleHTML();
             docFragment.appendChild(articleHTML);
-            this.clearFloatAfterNthElement(docFragment, articleIndex, AMOUNT_OF_ELEMENTS_IN_ROW);
         });
 
         this.fillContent(docFragment);
@@ -116,13 +107,15 @@ class FieldContainer extends FieldWithText {
          link.appendChild(p);
          link.appendChild(spanReadMore);
          link.appendChild(footer);
-
          articleHTML.appendChild(link);
+
          return articleHTML;
      }
 
      formatTimeToReadable(timeInternationalFormat) {
-         return timeInternationalFormat.split('T').join(' ').slice(0, timeInternationalFormat.lastIndexOf(':'));
+         const [date, timeWithSeconds] = timeInternationalFormat.split('T');
+         const time = timeWithSeconds.slice(0, timeWithSeconds.lastIndexOf(':'));
+         return `${date} ${time}`;
      }
  }
 
@@ -153,7 +146,7 @@ class FieldContainer extends FieldWithText {
         select.disabled = this.disabled;
     }
 
-    createSelect() {
+     createElementHTML() {
         const selectHTML = document.createElement('select');
         const optionHTML = document.createElement('option');
 
@@ -187,11 +180,43 @@ class FieldContainer extends FieldWithText {
          this.clearSelect();
          const select = document.getElementById(this.id);
          const documentFragment = this.createFragment();
-         this.channelsList.forEach(chanelName => {
-             const option = this.createOption(chanelName);
+
+         let optionWithRange = {
+             from: 0,
+             to: this.channelsList.length,
+             createOption: this.createOption,
+             channelsList: this.channelsList,
+             [Symbol.iterator]() {
+
+                 let current = this.from;
+                 let last = this.to;
+                 let createOption = this.createOption;
+                 let channelsList = this.channelsList;
+
+                 return {
+                     next() {
+                         if (current <= last) {
+                             return {
+                                 done: false,
+                                 value: createOption(channelsList[current++]),
+                             };
+                         } else {
+                             return {
+                                 done: true
+                             };
+                         }
+                     }
+
+                 }
+             },
+         };
+
+         for (let option of optionWithRange) {
              documentFragment.appendChild(option);
-         });
-         this.selectedValue = this.channelsList[0];
+         }
+
+         const [selectedValue, ...rest] = this.channelsList;
+         this.selectedValue = selectedValue;
          select.appendChild(documentFragment);
          this.allowSelect();
      }
@@ -220,7 +245,7 @@ class FieldContainer extends FieldWithText {
         this.id = id;
     }
 
-    createButton() {
+    createElementHTML() {
         const button = document.createElement('button');
         button.setAttribute('id', this.id);
         button.classList.add('page-header_btn');
@@ -248,7 +273,7 @@ class FieldContainer extends FieldWithText {
         this.value = value;
     }
 
-    createInput() {
+     createElementHTML() {
         const inputHTML = document.createElement('input');
         inputHTML.placeholder = this.placeholder;
         inputHTML.classList.add('page-header_input');
@@ -268,7 +293,11 @@ class FieldContainer extends FieldWithText {
  }
 
 const small = new FieldWithText('© Copyright 2018, Front Camp Created', 'small');
-const mainContainer = new FieldContainer('Articles will be here', 'div', 'output');
+const mainContainer = new FieldContainer({
+    id: 'output',
+    text: 'Articles will be here',
+    tagName: 'div',
+});
 const select = new Select({
     defaultValue: 'Loading...',
     channelsList: [],
@@ -277,13 +306,17 @@ const select = new Select({
 });
 const button = new Button('Show News', 'download-news-button');
 const inputElement = new Input('enter number of news...', 'news-amount', AMOUNT_OF_NEWS);
+const buttonsContainerHTML = document.getElementById('buttons-container');
+const buttons = new Set();
+
+buttons.add(button);
+buttons.add(inputElement);
+buttons.add(select);
 
 window.onload = function() {
     document.getElementById('copyright').appendChild(small.renderText());
     document.getElementById('container').appendChild(mainContainer.renderText());
-    document.getElementById('buttons-container').appendChild(button.createButton());
-    document.getElementById('buttons-container').appendChild(inputElement.createInput());
-    document.getElementById('buttons-container').appendChild(select.createSelect());
+    buttons.forEach(btn => buttonsContainerHTML.appendChild(btn.createElementHTML()));
 
     inputElement.getInput().addEventListener('input', () => inputElement.changeValue());
     button.getButton().addEventListener('click', button.downloadNews);
