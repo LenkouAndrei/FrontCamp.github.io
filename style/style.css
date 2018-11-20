@@ -103,6 +103,26 @@ a {
     display: flex;
     justify-content: space-between;
 }
+
+.page-header,
+.page-footer {
+    height: 100px;
+    box-sizing: border-box;
+    background-color: #4d9dff;
+    color: #cc8;
+}
+
+.page-header {
+    padding-top: 25px;
+}
+
+.page-header_btn {
+    background-color: #ccc;
+}
+
+.page-header_selection {
+    width: 215px;
+}
 /*header end*/
 /*main start*/
 #output {
@@ -114,8 +134,20 @@ a {
     width: 252px;
     margin: 2px;
     padding: 5px;
+    position: relative;
     box-sizing: border-box;
     word-wrap: break-word;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#output article:hover {
+    transform: scale(1.015);
+    background-color: rgba(255, 255, 255, 0.6);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(77,157,255,0.8);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(77,157,255,0.8);
+    box-shadow: 0px 0px 10px 0px rgba(77,157,255,0.8);
+    z-index: 10;
+    transition: 0.5s;
 }
 
 #output article footer {
@@ -137,16 +169,29 @@ time {
     width: 110px;
 }
 /*main end*/
+/*footer start*/
+.page-footer {
+    padding-top: 45px;
+}
+/*footer end*/
 /*small width start*/
 @media (max-width: 480px) {
     body {
         font-size: 26px;
     }
 
+    .page-header {
+        height: auto;
+    }
+
     .page-header_btn,
     .page-header_selection {
         font-size: 35px;
         line-height: 1.5;
+    }
+
+    .page-header_selection {
+        width: 100%;
     }
 
     .wrapper {
