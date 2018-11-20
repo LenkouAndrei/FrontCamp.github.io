@@ -62,7 +62,7 @@ class Article {
 		this.sourceName = options.sourceName || '';
 		this.title = options.title || '';
 		this.url = options.url || '';
-		this.urlToImage = options.urlToImage || '';
+		this.urlToImage = options.urlToImage || './img/eye.jpg';
 		this.imgWidth = 230;
 	}
 
