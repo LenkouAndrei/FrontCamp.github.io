@@ -75,10 +75,6 @@ body {
     background-color: #ccc;
 }
 
-.clearfix {
-    clear: both;
-}
-
 figure {
     margin: 0;
 }
@@ -109,12 +105,16 @@ a {
 }
 /*header end*/
 /*main start*/
+#output {
+    display: flex;
+    flex-flow: row wrap;
+}
+
 #output article {
     width: 252px;
     margin: 2px;
     padding: 5px;
     box-sizing: border-box;
-    float: left;
     word-wrap: break-word;
 }
 
@@ -147,10 +147,6 @@ time {
     .page-header_selection {
         font-size: 35px;
         line-height: 1.5;
-    }
-
-    .clearfix {
-        display: none;
     }
 
     .wrapper {
