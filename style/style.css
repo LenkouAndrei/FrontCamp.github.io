@@ -106,10 +106,10 @@ a {
 
 .page-header,
 .page-footer {
-    height: 100px;
+    height: 50px;
     box-sizing: border-box;
     background-color: #4d9dff;
-    color: #cc8;
+    color: #000;
 }
 
 .page-header {
@@ -120,14 +120,28 @@ a {
     background-color: #ccc;
 }
 
+.main_wrapper {
+    display: flex;
+}
+
 .page-header_selection {
+    display: flex;
+    flex-direction: column;
     width: 215px;
+    height: calc(100vh - 100px);
+    overflow: auto;
+}
+
+.page-header_selection input {
+    flex: 1;
+    min-height: 30px;
 }
 /*header end*/
 /*main start*/
 #output {
     display: flex;
     flex-flow: row wrap;
+    flex: 1;
 }
 
 #output article {
@@ -172,7 +186,7 @@ time {
 /*main end*/
 /*footer start*/
 .page-footer {
-    padding-top: 45px;
+    padding-top: 15px;
 }
 /*footer end*/
 /*small width start*/

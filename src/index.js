@@ -1,6 +1,5 @@
 window.onload = function() {
 	const API_KEY = 'b7898b8ae1f042849321a38b58c68df0';
-	const AMOUNT_OF_NEWS = 10;
 
 	class FieldWithText {
 		constructor(text, tagName) {
@@ -123,7 +122,6 @@ window.onload = function() {
 		constructor(options) {
 			this.defaultValue = options.defaultValue;
 			this.channelsList = options.channelsList;
-			this.disabled = options.disabled;
 			this.id = options.id;
 			this.selectedName = {};
 		}
@@ -140,22 +138,15 @@ window.onload = function() {
 			this.channelsList = newChannelsList;
 		}
 
-		allowSelect() {
-			const select = document.getElementById(this.id);
-			this.disabled = false;
-			select.disabled = this.disabled;
-		}
-
 		createElementHTML() {
-			const selectHTML = document.createElement('select');
-			const optionHTML = document.createElement('option');
+			const selectHTML = document.createElement('nav');
+			const optionHTML = document.createElement('input');
 
 			selectHTML.setAttribute('id', this.id);
 			selectHTML.classList.add('page-header_selection');
-			selectHTML.disabled = this.disabled;
 
 			optionHTML.setAttribute('value', this.defaultValue);
-			optionHTML.innerHTML = this.defaultValue;
+			optionHTML.setAttribute('type', 'submit');
 
 			selectHTML.appendChild(optionHTML);
 
@@ -215,15 +206,12 @@ window.onload = function() {
 				documentFragment.appendChild(option);
 			}
 
-			const [selectedValue, ...rest] = this.channelsList;
-			this.selectedValue = selectedValue;
 			select.appendChild(documentFragment);
-			this.allowSelect();
 		}
 
 		createOption(optionValue) {
-			const option = document.createElement('option');
-			option.innerHTML = optionValue;
+			const option = document.createElement('input');
+			option.setAttribute('type', 'submit');
 			option.setAttribute('value', optionValue);
 			return option;
 		}
@@ -254,40 +242,13 @@ window.onload = function() {
 		}
 
 		downloadNews() {
-			const newsAmount = inputElement.value;
-			const request = formRequest(API_KEY, select.selectedValue, newsAmount);
+			const request = formRequest(API_KEY, select.selectedValue);
 			fetch(request)
 				.then(response => response.json())
 				.then(answer => mainContainer.renderNews(answer.articles));
 		}
 
 		getButton() {
-			return document.getElementById(this.id);
-		}
-	}
-
-	class Input {
-		constructor(placeholder, id, value) {
-			this.placeholder = placeholder;
-			this.id = id;
-			this.value = value;
-		}
-
-		createElementHTML() {
-			const inputHTML = document.createElement('input');
-			inputHTML.placeholder = this.placeholder;
-			inputHTML.classList.add('page-header_input');
-			inputHTML.setAttribute('id', this.id);
-			inputHTML.setAttribute('type', 'text');
-			return inputHTML;
-		}
-
-		changeValue() {
-			const inputHTML = this.getInput();
-			this.value = parseInt(inputHTML.value) || this.value;
-		}
-
-		getInput() {
 			return document.getElementById(this.id);
 		}
 	}
@@ -304,43 +265,31 @@ window.onload = function() {
 	const select = new Select({
 		defaultValue: 'Loading...',
 		channelsList: [],
-		disabled: true,
 		id: 'channel-select',
 	});
 	const button = new Button('Show News', 'download-news-button');
-	const inputElement = new Input(
-		'enter number of news...',
-		'news-amount',
-		AMOUNT_OF_NEWS
-	);
 	const buttonsContainerHTML = document.getElementById('buttons-container');
 	const buttons = new Set();
 
 	buttons.add(button);
-	buttons.add(inputElement);
-	buttons.add(select);
 
 	document.getElementById('copyright').appendChild(small.renderText());
 	document.getElementById('container').appendChild(mainContainer.renderText());
+	document.getElementById('container').appendChild(select.createElementHTML());
 	buttons.forEach(btn =>
 		buttonsContainerHTML.appendChild(btn.createElementHTML())
 	);
 
-	inputElement
-		.getInput()
-		.addEventListener('input', () => inputElement.changeValue());
 	button.getButton().addEventListener('click', button.downloadNews);
 
 	const request = formRequest(API_KEY);
 	select.loadOptions(request);
 
-	function formRequest(apiKey, channelName = '', newsAmount = AMOUNT_OF_NEWS) {
+	function formRequest(apiKey, channelName = '') {
 		const url = `https://newsapi.org/v2/${
 			channelName === '' ? 'sources' : 'everything'
 		}?${
-			channelName === ''
-				? ''
-				: `sources="${channelName}"&pageSize=${newsAmount}`
+			channelName === '' ? '' : `sources="${channelName}"&pageSize=10`
 		}&apiKey=${apiKey}`;
 		return new Request(url);
 	}
