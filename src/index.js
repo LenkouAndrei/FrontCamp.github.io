@@ -1,196 +1,175 @@
 window.onload = function() {
 	const API_KEY = 'b7898b8ae1f042849321a38b58c68df0';
 
-	class FieldWithText {
-		constructor(text, tagName) {
+	class CommonElement {
+		constructor(htmlElementOrTagName) {
+			this.htmlElement =
+				typeof htmlElementOrTagName === 'string'
+					? document.createElement(htmlElementOrTagName)
+					: htmlElementOrTagName;
+		}
+
+		get element() {
+			return this.htmlElement;
+		}
+
+		set element(newHTMLElement) {
+			this.htmlElement = newHTMLElement;
+		}
+
+		addChild(childElement) {
+			this.htmlElement.appendChild(childElement);
+		}
+
+		clearElement() {
+			this.htmlElement.innerHTML = '';
+		}
+	}
+
+	class Button extends CommonElement {
+		constructor({ text, ...classesOptions }) {
+			super('input');
 			this.text = text;
-			this.tagName = tagName;
+			this.classList = classesOptions.classes;
+			this.active = classesOptions.active;
 		}
 
-		renderText() {
-			const elementHTML = document.createElement(this.tagName);
-			elementHTML.innerHTML = this.text;
-			return elementHTML;
-		}
-	}
-
-	class FieldContainer extends FieldWithText {
-		constructor({ id, ...propertiesToSuper }) {
-			super(propertiesToSuper.text, propertiesToSuper.tagName);
-			this.id = id;
+		clearElement() {
+			super.clearElement();
+			this.htmlElement.classList.remove(this.classList);
 		}
 
-		renderText() {
-			const elementHTML = super.renderText();
-			elementHTML.setAttribute('id', this.id);
-			return elementHTML;
+		formHTMLElement() {
+			this.htmlElement.setAttribute('value', this.text);
+			this.htmlElement.setAttribute('type', 'submit');
+			this.classList.forEach(elementClass =>
+				this.htmlElement.classList.add(elementClass)
+			);
 		}
 
-		clear() {
-			document.getElementById(this.id).innerHTML = '';
-		}
-
-		fillContent(elementHTMLWithContent) {
-			document.getElementById(this.id).appendChild(elementHTMLWithContent);
-		}
-
-		createFragment() {
-			const fragment = document.createDocumentFragment();
-			return fragment;
-		}
-
-		renderNews(articlesNews) {
-			this.clear();
-			let docFragment = this.createFragment();
-
-			articlesNews.forEach(articleNews => {
-				const article = new Article(articleNews);
-				const articleHTML = article.createArticleHTML();
-				docFragment.appendChild(articleHTML);
-			});
-
-			this.fillContent(docFragment);
+		formNewsRequest() {
+			return formRequest(API_KEY, this.text);
 		}
 	}
 
-	class Article {
+	class Article extends CommonElement {
 		constructor(options) {
-			this.author = options.author || '';
-			this.content = options.content || '';
-			this.description = options.description || '';
+			super('article');
 			this.publishedAt = options.publishedAt || '';
-			this.sourceName = options.sourceName || '';
 			this.title = options.title || '';
-			this.url = options.url || '';
 			this.urlToImage = options.urlToImage || './img/eye.jpg';
+			this.url = options.url || '';
 			this.imgWidth = 230;
 		}
 
-		createArticleHTML() {
-			const articleHTML = document.createElement('article');
-			const link = document.createElement('a');
-			const h2 = document.createElement('h2');
-			const figure = document.createElement('figure');
-			const img = document.createElement('img');
-			const figcaption = document.createElement('figcaption');
-			const footer = document.createElement('footer');
-			const time = document.createElement('time');
-			const spanAuthor = document.createElement('span');
-			const spanSource = document.createElement('span');
-			const spanReadMore = document.createElement('span');
-			const div = document.createElement('div');
-			const p = document.createElement('p');
-			const content = this.content;
-
-			h2.innerHTML = this.title;
-			img.setAttribute('src', this.urlToImage);
-			img.setAttribute('width', this.imgWidth);
-			figcaption.innerHTML = this.description;
-			time.innerHTML = this.formatTimeToReadable(this.publishedAt);
-			time.setAttribute('datetime', this.publishedAt);
-			spanAuthor.innerHTML = this.author;
-			spanSource.innerHTML = this.sourceName;
-			p.innerHTML = content.slice(0, content.lastIndexOf('['));
-			spanReadMore.innerHTML = 'Read more...';
-			spanReadMore.setAttribute('role', 'link');
-			link.setAttribute('href', this.url);
-
-			div.appendChild(spanAuthor);
-			div.appendChild(spanSource);
-			footer.appendChild(time);
-			footer.appendChild(div);
-			link.appendChild(h2);
-			figure.appendChild(img);
-			figure.appendChild(figcaption);
-			link.appendChild(figure);
-			link.appendChild(p);
-			link.appendChild(spanReadMore);
-			link.appendChild(footer);
-			articleHTML.appendChild(link);
-
-			return articleHTML;
+		formHTMLElement() {
+			this.htmlElement.innerHTML = `<a class="news_link" href="${this.url}">
+											<div class="news_image-wrapper">
+												<div class="news_image"></div>
+												<time class="news_pub-time" pubdate="${
+													this.publishedAt
+												}">${this.formatTimeToReadable(this.publishedAt)}</time>
+											</div>
+											<h2  class="news_headline">${this.title}</h2>
+										</a>`;
+			this.htmlElement.classList.add('news');
+			const el = this.htmlElement.querySelector('.news_image');
+			el.style.backgroundImage = `url(\'${this.urlToImage}\')`;
 		}
 
 		formatTimeToReadable(timeInternationalFormat) {
 			const [date, timeWithSeconds] = timeInternationalFormat.split('T');
-			const time = timeWithSeconds.slice(0, timeWithSeconds.lastIndexOf(':'));
-			return `${date} ${time}`;
+			return timeWithSeconds
+				? timeWithSeconds.slice(0, timeWithSeconds.lastIndexOf(':'))
+				: '';
 		}
 	}
 
-	class Select {
-		constructor(options) {
-			this.defaultValue = options.defaultValue;
-			this.channelsList = options.channelsList;
-			this.id = options.id;
-			this.selectedName = {};
+	const nameToClass = {
+		navigation: Button,
+		field: Article,
+	};
+
+	class ElementContainer extends CommonElement {
+		constructor(htmlElement, name) {
+			super(htmlElement);
+			this.innerElementsResponseList = [];
+			this.innerHTMLElementsList = [];
+			this.innerElementsList = [];
+			this.name = name;
+			this.activeButton;
+			this.height = '';
 		}
 
-		set selectedValue(value) {
-			this.selectedName.name = value;
+		get elementHeght() {
+			return this.height;
 		}
 
-		get selectedValue() {
-			return this.selectedName.name;
+		set elementHeight(height) {
+			this.height = height;
 		}
 
-		changeChannelsList(newChannelsList) {
-			this.channelsList = newChannelsList;
+		get activeBtn() {
+			return this.activeButton;
 		}
 
-		createElementHTML() {
-			const selectHTML = document.createElement('nav');
-			const optionHTML = document.createElement('input');
-
-			selectHTML.setAttribute('id', this.id);
-			selectHTML.classList.add('page-header_selection');
-
-			optionHTML.setAttribute('value', this.defaultValue);
-			optionHTML.setAttribute('type', 'submit');
-
-			selectHTML.appendChild(optionHTML);
-
-			return selectHTML;
+		set activeBtn(element) {
+			this.activeButton = element;
 		}
 
-		loadOptions(request) {
-			fetch(request)
+		calculateHeight() {
+			return this.htmlElement.getBoundingClientRect().height;
+		}
+
+		applyHeightToHTMLElement() {
+			this.htmlElement.style.height = `${this.height}px`;
+		}
+
+		loadElements(request) {
+			return fetch(request)
 				.then(response => response.json())
 				.then(answer => {
-					const channelsNamesList = this.transformResponseJSONToChannelsList(
-						answer.sources
-					);
-					this.changeChannelsList(channelsNamesList);
-					this.createOptions();
+					this.innerElementsResponseList =
+						answer.articles ||
+						this.transformResponseJSONToInnerElementsList(answer.sources);
+					this.createInnerElements();
+					return {
+						innerElementsResponseList: this.innerElementsResponseList,
+						innerHTMLElementsList: this.innerHTMLElementsList,
+						innerElementsList: this.innerElementsList,
+					};
 				});
 		}
 
-		transformResponseJSONToChannelsList(newsSources) {
-			return newsSources.map(source => source.id);
+		transformResponseJSONToInnerElementsList(innerElements) {
+			return innerElements.map(source => source.id);
 		}
 
-		createOptions() {
-			this.clearSelect();
-			const select = document.getElementById(this.id);
+		createInnerElements() {
+			this.clearElement();
 			const documentFragment = this.createFragment();
 
-			let optionWithRange = {
+			let innerElementWithRange = {
 				from: 0,
-				to: this.channelsList.length,
-				createOption: this.createOption,
-				channelsList: this.channelsList,
+				to: this.innerElementsResponseList.length,
+				createInnerElement: this.createInnerElement,
+				innerElementsList: this.innerElementsResponseList,
+				context: this,
 				[Symbol.iterator]() {
 					let current = this.from;
 					let last = this.to;
-					let createOption = this.createOption;
-					let channelsList = this.channelsList;
+					let createInnerElement = this.createInnerElement;
+					let innerElementsList = this.innerElementsList;
+					let context = this.context;
 
 					return {
 						next() {
-							if (current <= last) {
+							if (current < last) {
+								const active = current === 0;
+								const value = innerElementsList[current++];
 								return {
 									done: false,
-									value: createOption(channelsList[current++]),
+									value: createInnerElement.call(context, { value, active }),
 								};
 							} else {
 								return {
@@ -202,23 +181,31 @@ window.onload = function() {
 				},
 			};
 
-			for (let option of optionWithRange) {
-				documentFragment.appendChild(option);
+			for (let innerElement of innerElementWithRange) {
+				this.innerHTMLElementsList.push(innerElement);
+				documentFragment.appendChild(innerElement);
 			}
 
-			select.appendChild(documentFragment);
+			this.addChild(documentFragment);
 		}
 
-		createOption(optionValue) {
-			const option = document.createElement('input');
-			option.setAttribute('type', 'submit');
-			option.setAttribute('value', optionValue);
-			return option;
-		}
-
-		clearSelect() {
-			const select = document.getElementById(this.id);
-			select.innerHTML = '';
+		createInnerElement({ value, active }) {
+			const classOptions = value.title
+				? value
+				: {
+						text: value,
+						classes: ['navigation_btn'],
+				  };
+			if (active && !value.title) {
+				classOptions.classes.push('active');
+			}
+			const innerElement = new nameToClass[this.name](classOptions);
+			innerElement.formHTMLElement();
+			this.innerElementsList.push(innerElement);
+			if (active && !value.title) {
+				this.activeBtn = innerElement.element;
+			}
+			return innerElement.element;
 		}
 
 		createFragment() {
@@ -227,70 +214,46 @@ window.onload = function() {
 		}
 	}
 
-	class Button {
-		constructor(name, id) {
-			this.name = name;
-			this.id = id;
-		}
-
-		createElementHTML() {
-			const button = document.createElement('button');
-			button.setAttribute('id', this.id);
-			button.classList.add('page-header_btn');
-			button.innerHTML = this.name;
-			return button;
-		}
-
-		downloadNews() {
-			const request = formRequest(API_KEY, select.selectedValue);
-			fetch(request)
-				.then(response => response.json())
-				.then(answer => mainContainer.renderNews(answer.articles));
-		}
-
-		getButton() {
-			return document.getElementById(this.id);
-		}
-	}
-
-	const small = new FieldWithText(
-		'© Copyright 2018, Front Camp Created',
-		'small'
+	const mainContainer = new ElementContainer(
+		document.getElementById('output'),
+		'field'
 	);
-	const mainContainer = new FieldContainer({
-		id: 'output',
-		text: 'Articles will be here',
-		tagName: 'div',
-	});
-	const select = new Select({
-		defaultValue: 'Loading...',
-		channelsList: [],
-		id: 'channel-select',
-	});
-	const button = new Button('Show News', 'download-news-button');
-	const buttonsContainerHTML = document.getElementById('buttons-container');
-	const buttons = new Set();
-
-	buttons.add(button);
-
-	document.getElementById('copyright').appendChild(small.renderText());
-	document.getElementById('container').appendChild(mainContainer.renderText());
-	document.getElementById('container').appendChild(select.createElementHTML());
-	buttons.forEach(btn =>
-		buttonsContainerHTML.appendChild(btn.createElementHTML())
+	const navigation = new ElementContainer(
+		document.getElementById('buttons'),
+		'navigation'
 	);
-
-	button.getButton().addEventListener('click', button.downloadNews);
 
 	const request = formRequest(API_KEY);
-	select.loadOptions(request);
+	navigation
+		.loadElements(request)
+		.then(buttons => {
+			const [firstButton, ...restButtons] = buttons.innerElementsList;
+			return firstButton;
+		})
+		.then(firstBtn => {
+			const requestForNews = firstBtn.formNewsRequest();
+			return mainContainer.loadElements(requestForNews);
+		})
+		.then(() => {
+			const mainContainerHeight = Math.ceil(mainContainer.calculateHeight());
+			navigation.elementHeight = mainContainerHeight;
+			navigation.applyHeightToHTMLElement();
+			navigation.innerElementsList.forEach(button => {
+				const buttonHTML = button.element;
+				buttonHTML.addEventListener('click', () => {
+					navigation.activeBtn.classList.remove('active');
+					buttonHTML.classList.add('active');
+					navigation.activeBtn = buttonHTML;
+					const freshNewsRequest = button.formNewsRequest();
+					mainContainer.loadElements(freshNewsRequest);
+				});
+			});
+		});
 
 	function formRequest(apiKey, channelName = '') {
-		const url = `https://newsapi.org/v2/${
-			channelName === '' ? 'sources' : 'everything'
-		}?${
-			channelName === '' ? '' : `sources="${channelName}"&pageSize=10`
-		}&apiKey=${apiKey}`;
+		const url = `https://newsapi.org/v1/${
+			channelName === '' ? 'sources' : 'articles'
+		}?${channelName === '' ? '' : `source=${channelName}`}&apiKey=${apiKey}`;
 		return new Request(url);
 	}
 };
