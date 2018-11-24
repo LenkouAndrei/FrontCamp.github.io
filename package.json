@@ -8,7 +8,7 @@
   },
   "lint-staged":{
     "src/*.js": [
-      "prettier --single-quote --use-tabs --trailing-comma es5 --config-precedence=prefer-file --write \"src/*.js\"",
+      "prettier --single-quote --trailing-comma es5 --config-precedence=prefer-file --write \"src/*.js\"",
       "git add"
     ]
   },
