@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "precommit": "lint-staged",
-    "dev": "webpack --mode development --config webpackConfig/webpack.develop.js",
-    "watch": "webpack-dev-server --mode development --config webpackConfig/webpack.develop.js",
-    "prod": "webpack --mode production --config webpackConfig/webpack.product.js"
+    "dev": "webpack --config webpackConfig/webpack.develop.js",
+    "watch": "webpack-dev-server --config webpackConfig/webpack.develop.js --open",
+    "prod": "webpack --config webpackConfig/webpack.product.js"
   },
   "lint-staged": {
     "src/*.js": [
@@ -41,6 +41,7 @@
     "husky": "1.1.4",
     "less-loader": "^4.1.0",
     "lint-staged": "8.0.5",
+    "mini-css-extract-plugin": "^0.4.5",
     "postcss-loader": "^3.0.0",
     "prettier": "1.15.2",
     "style-loader": "^0.23.1",

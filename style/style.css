@@ -1,4 +1,3 @@
-/*common styles start*/
 body {
     display: flex;
     flex-flow: column;
@@ -165,4 +164,3 @@ a {
         width: auto;
     }
 }
-/*small width end*/

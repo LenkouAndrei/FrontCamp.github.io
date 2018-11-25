@@ -1,4 +1,3 @@
-/*normalize start*/
 html {
     line-height: 1.15;
     -ms-text-size-adjust: 100%;
@@ -66,4 +65,3 @@ legend {
 summary {
     display: list-item;
 }
-/*normalize end*/
