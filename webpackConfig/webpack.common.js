@@ -4,10 +4,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: ['@babel/polyfill', 'whatwg-fetch', path.resolve(__dirname,'./src/index.js')],
+    entry: ['@babel/polyfill', 'whatwg-fetch', path.resolve(__dirname,'../src/index.js')],
     output: {
         filename: 'index.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, '../dist')
     },
     module: {
         rules: [
