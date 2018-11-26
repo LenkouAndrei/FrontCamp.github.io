@@ -16,10 +16,7 @@ module.exports = {
             template: 'index.html',
             chunks: ['main', 'polyfills']
         }),
-        new MiniCssExtractPlugin({
-            filename: "[name].css",
-            chunkFilename: "[id].css"
-        })
+        new MiniCssExtractPlugin()
     ],
     entry: ['@babel/polyfill', 'whatwg-fetch', path.resolve(__dirname, '../src/index.js')],
     output: {

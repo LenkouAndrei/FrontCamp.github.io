@@ -1,3 +1,5 @@
+import '../style/normalize.css'
+import '../style/style.css'
 import { ContainerElement } from './containerElement/containerElement.js'
 import { API_KEY, formRequest } from './utilities/utilities'
 
