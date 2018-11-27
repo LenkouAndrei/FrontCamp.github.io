@@ -10,7 +10,7 @@ figure {
 }
 
 main {
-    flex: 1;
+    flex: 1 0 auto;
 }
 
 a {
@@ -44,8 +44,10 @@ a {
 .page-header_selection {
     display: flex;
     flex-direction: column;
+    position: absolute;
+    top: 0;
+    bottom: 0;
     width: 215px;
-    height: calc(100vh - 100px);
     overflow: auto;
     margin-left: 5px;
 }
@@ -62,6 +64,11 @@ a {
     justify-content: space-between;
     flex: 1;
     padding: 5px 0;
+}
+
+.aside {
+    position: relative;
+    width: 215px;
 }
 
 .news {
@@ -131,9 +138,13 @@ a {
 }
 /*footer end*/
 /*medium width starts*/
-@media (max-width: 1040px) and (min-width: 481px) {
+@media (max-width: 1050px){
     .wrapper {
         width: auto;
+    }
+
+    .aside {
+        width: 225px;
     }
 
     #output {
@@ -152,12 +163,21 @@ a {
         width: 315px;
     }
 
+    #output {
+        justify-content: space-around;
+    }
+
+    #container {
+        margin: 0;
+    }
+
     .page-header_selection {
         width: 220px;
         font-size: 1.25rem;
     }
+
 }
-@media (max-width: 550px) {
+@media (max-width: 575px) {
     .news,
     .news_headline,
     .news_image-wrapper {

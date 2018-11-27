@@ -20,21 +20,16 @@ window.onload = function() {
     })
     .then(firstBtn => {
       const requestForNews = firstBtn.formNewsRequest()
-      return mainContainer.loadElements(requestForNews)
-    })
-    .then(() => {
-      const mainContainerHeight = Math.ceil(mainContainer.calculateHeight())
-      navigation.elementHeight = mainContainerHeight
-      navigation.applyHeightToHTMLElement()
+      mainContainer.loadElements(requestForNews)
       navigation.innerElementsList.forEach(button => {
-        const buttonHTML = button.element
-        buttonHTML.addEventListener('click', () => {
-          navigation.activeBtn.classList.remove('active')
-          buttonHTML.classList.add('active')
-          navigation.activeBtn = buttonHTML
-          const freshNewsRequest = button.formNewsRequest()
-          mainContainer.loadElements(freshNewsRequest)
-        })
+          const buttonHTML = button.element
+          buttonHTML.addEventListener('click', () => {
+              navigation.activeBtn.classList.remove('active')
+              buttonHTML.classList.add('active')
+              navigation.activeBtn = buttonHTML
+              const freshNewsRequest = button.formNewsRequest()
+              mainContainer.loadElements(freshNewsRequest)
+          })
       })
     })
 }

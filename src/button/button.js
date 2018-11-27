@@ -15,11 +15,14 @@ export   class Button extends CommonElement {
     }
 
     formHTMLElement() {
-        this.htmlElement.setAttribute('value', this.text)
         this.htmlElement.setAttribute('type', 'submit')
         this.classList.forEach(elementClass =>
             this.htmlElement.classList.add(elementClass)
         )
+        const emptySubstringLength = Math.floor((20 - this.text) / 2);
+        const newText = (this.text.length < 20) ?
+            `${this.text.padStart(emptySubstringLength).padEnd(emptySubstringLength)}` : this.text;
+        this.htmlElement.value = newText
     }
 
     formNewsRequest() {

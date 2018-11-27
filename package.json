@@ -4,19 +4,23 @@
   "description": "FrontCamp progrma 2018",
   "main": "index.js",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "husky": "^1.1.4",
     "lint-staged": "^8.0.5",
-    "prettier": "^1.15.2"
+    "prettier": "^1.15.2",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
+    "babel-loader": "^8.0.4",
+    "babel-watch": "^2.0.7",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "dev": "webpack"
+    "dev": "webpack --watch"
   },
   "repository": {
     "type": "git",
