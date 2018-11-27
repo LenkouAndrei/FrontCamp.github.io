@@ -1,5 +1,3 @@
-import '../style/normalize.css'
-import '../style/style.css'
 import { ContainerElement } from './containerElement/containerElement.js'
 import { API_KEY, formRequest } from './utilities/utilities'
 
@@ -22,12 +20,7 @@ window.onload = function() {
     })
     .then(firstBtn => {
       const requestForNews = firstBtn.formNewsRequest()
-      return mainContainer.loadElements(requestForNews)
-    })
-    .then(() => {
-      const mainContainerHeight = Math.ceil(mainContainer.calculateHeight())
-      navigation.elementHeight = mainContainerHeight
-      navigation.applyHeightToHTMLElement()
+      mainContainer.loadElements(requestForNews)
       navigation.innerElementsList.forEach(button => {
         const buttonHTML = button.element
         buttonHTML.addEventListener('click', () => {

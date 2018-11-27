@@ -34,16 +34,8 @@ export class ContainerElement extends CommonElement {
         this.activeButton = element
     }
 
-    calculateHeight() {
-        return this.htmlElement.getBoundingClientRect().height
-    }
-
-    applyHeightToHTMLElement() {
-        this.htmlElement.style.height = `${this.height}px`
-    }
-
-    loadElements(request) {
-        return fetch(request)
+    async loadElements(request) {
+        const innerListsObject = await fetch(request)
             .then(response => response.json())
             .then(answer => {
                 this.innerElementsResponseList =
@@ -56,6 +48,7 @@ export class ContainerElement extends CommonElement {
                     innerElementsList: this.innerElementsList,
                 }
             })
+        return innerListsObject;
     }
 
     transformResponseJSONToInnerElementsList(innerElements) {
