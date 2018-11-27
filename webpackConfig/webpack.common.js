@@ -16,7 +16,9 @@ module.exports = {
             template: 'index.html',
             chunks: ['main', 'polyfills']
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin({
+            filename: '[name].css'
+        })
     ],
     entry: ['@babel/polyfill', 'whatwg-fetch', path.resolve(__dirname, '../src/index.js')],
     output: {
@@ -34,42 +36,43 @@ module.exports = {
                 }
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
                     {
-                        loader: MiniCssExtractPlugin.loader
+                        loader: 'style-loader',
+                        options: {
+                            sourceMap: true
+                        }
                     },
-                    "css-loader"
-                    // {
-                    //     loader: 'style-loader',
-                    //     options: {
-                    //         sourceMap: true
-                    //     }
-                    // },
-                    // {
-                    //     loader: 'css-loader',
-                    //     options: {
-                    //         sourceMap: true
-                    //     }
-                    // },
-                    // {
-                    //     loader: 'postcss-loader',
-                    //     options: {
-                    //         plugins: [
-                    //             autoprefixer({
-                    //                 browsers: ['ie >= 10', 'last 4 version']
-                    //             })
-                    //         ],
-                    //         sourceMap: true
-                    //     }
-                    // },
-                    // {
-                    //     loader: 'less-loader',
-                    //     options: {
-                    //         sourceMap: true
-                    //     }
-                    // }
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: [
+                                autoprefixer({
+                                    browsers: ['ie >= 10', 'last 2 version']
+                                })
+                            ],
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            paths: [
+                                path.resolve(__dirname, "node_modules")
+                            ]
+                        }
+                    }
                 ]
             }
         ]
