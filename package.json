@@ -1,0 +1,31 @@
+{
+  "name": "babel",
+  "version": "1.0.0",
+  "description": "FrontCamp progrma 2018",
+  "main": "index.js",
+  "dependencies": {
+    "husky": "^1.1.4",
+    "lint-staged": "^8.0.5",
+    "prettier": "^1.15.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "scripts": {
+    "dev": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LenkouAndrei/FrontCamp.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LenkouAndrei/FrontCamp.github.io/issues"
+  },
+  "homepage": "https://github.com/LenkouAndrei/FrontCamp.github.io#readme"
+}
