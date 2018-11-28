@@ -1,0 +1,31 @@
+{
+  "name": "FrontCamp.github.io",
+  "version": "1.0.0",
+  "description": "FrontCamp program 2018",
+  "main": "index.js",
+  "scripts": {
+    "precommit": "lint-staged"
+  },
+  "lint-staged":{
+    "src/*.js": [
+      "prettier --single-quote --trailing-comma es5 --config-precedence=prefer-file --write \"src/*.js\"",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LenkouAndrei/FrontCamp.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LenkouAndrei/FrontCamp.github.io/issues"
+  },
+  "homepage": "https://github.com/LenkouAndrei/FrontCamp.github.io#readme",
+  "devDependencies": {
+    "husky": "1.1.4",
+    "lint-staged": "8.0.5",
+    "prettier": "1.15.2"
+  }
+}
