@@ -13,6 +13,17 @@ window.onload = function() {
     'navigation'
   )
 
+  document.addEventListener('keydown', e => {
+    if (e.keyCode === 13) {
+      console.log('load')
+      import('./errorHandler/errorHandler').then(module => {
+        const handler = module.ErrorHandler
+        const singletonHandler = handler.getInstance()
+        console.log(singletonHandler)
+      })
+    }
+  })
+
   const request = formRequest(API_KEY)
   navigation
     .loadElements(request)
