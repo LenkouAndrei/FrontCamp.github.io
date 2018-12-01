@@ -26,7 +26,15 @@ export function performRequest(method, channelNameOrRequestBody = '') {
     const url = `https://newsapi.org/v1/${
         channelNameOrRequestBody === '' ? 'sources' : 'articles'
         }?${channelNameOrRequestBody === '' ? '' : `source=${channelNameOrRequestBody}`}&apiKey=${API_KEY}`
-    return requestMethods[method]({
+    let proxy = new Proxy(requestMethods[method], {
+        apply: function(target, thisArg, argumentsList) {
+            console.log(`запрос пойдёт по адресу: ${argumentsList[0].url}`);
+            console.log(`тело запроса: ${argumentsList[0].requestBody}`);
+            console.log(`метод: ${method}`);
+            return target.apply(thisArg, argumentsList);
+        }
+    });
+    return proxy({
         url,
         requestBody: channelNameOrRequestBody
     });
