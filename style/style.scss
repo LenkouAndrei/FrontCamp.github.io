@@ -27,6 +27,49 @@ a {
     width: 1024px;
     margin: auto;
 }
+
+.notification {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    background-color: #1a81ff;
+    font-size: 1.2rem;
+
+    &--backdrop {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(105,105,105, 0.7);
+    }
+
+    &--headline {
+        margin: 0;
+        padding: 5px 0;
+        text-align: center;
+        background-color: #6088b9;
+    }
+}
+
+.description {
+    padding-left: 20px;
+    margin-top: 10px;
+
+    &--item {
+        list-style-type: none;
+    }
+
+    &--name {
+        font-weight: bolder;
+    }
+
+    &--info {
+        font-style: italic;
+    }
+}
 /*common styles end*/
 /*header start*/
 .page-header,

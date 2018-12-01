@@ -19,7 +19,7 @@ window.onload = function() {
       import('./errorHandler/errorHandler').then(module => {
         const handler = module.ErrorHandler
         const singletonHandler = handler.getInstance()
-        console.log(singletonHandler)
+        singletonHandler.createMarkup()
       })
     }
   })
