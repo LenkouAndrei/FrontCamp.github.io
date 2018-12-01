@@ -34,21 +34,16 @@ export class ContainerElement extends CommonElement {
         this.activeButton = element
     }
 
-    async loadElements(request) {
-        const innerListsObject = await fetch(request)
-            .then(response => response.json())
-            .then(answer => {
-                this.innerElementsResponseList =
-                    answer.articles ||
-                    this.transformResponseJSONToInnerElementsList(answer.sources)
-                this.createInnerElements()
-                return {
-                    innerElementsResponseList: this.innerElementsResponseList,
-                    innerHTMLElementsList: this.innerHTMLElementsList,
-                    innerElementsList: this.innerElementsList,
-                }
-            })
-        return innerListsObject;
+    setInnerElemenst(answer) {
+        this.innerElementsResponseList =
+            answer.articles ||
+            this.transformResponseJSONToInnerElementsList(answer.sources)
+        this.createInnerElements()
+        return {
+            innerElementsResponseList: this.innerElementsResponseList,
+            innerHTMLElementsList: this.innerHTMLElementsList,
+            innerElementsList: this.innerElementsList,
+        }
     }
 
     transformResponseJSONToInnerElementsList(innerElements) {

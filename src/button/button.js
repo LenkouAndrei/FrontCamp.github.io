@@ -1,5 +1,5 @@
 import {CommonElement} from "../commonElement/commonElement";
-import {API_KEY, formRequest} from "../utilities/utilities";
+import {performRequest} from "../utilities/utilities";
 
 export   class Button extends CommonElement {
     constructor({ text, ...classesOptions }) {
@@ -26,6 +26,6 @@ export   class Button extends CommonElement {
     }
 
     formNewsRequest() {
-        return formRequest(API_KEY, this.text)
+        return performRequest('GET', this.text)
     }
 }
