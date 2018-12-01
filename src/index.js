@@ -13,16 +13,6 @@ window.onload = function() {
     'navigation'
   )
 
-  document.addEventListener('keydown', e => {
-    if (e.keyCode === 13) {
-      import('./errorHandler/errorHandler').then(module => {
-        const handler = module.ErrorHandler
-        const singletonHandler = handler.getInstance()
-        singletonHandler.createMarkup()
-      })
-    }
-  })
-
   performRequest('GET')
     .then(response => response.json())
     .then(jsonData => navigation.setInnerElemenst(jsonData))
@@ -35,6 +25,13 @@ window.onload = function() {
         .formNewsRequest()
         .then(response => response.json())
         .then(jsonData => mainContainer.setInnerElemenst(jsonData))
+        .catch(error => {
+          import('./errorHandler/errorHandler').then(module => {
+            const singletonHandler = module.ErrorHandler.getInstance()
+            singletonHandler.error = error
+            singletonHandler.createMarkup()
+          })
+        })
       navigation.innerElementsList.forEach(button => {
         const buttonHTML = button.element
         buttonHTML.addEventListener('click', () => {
@@ -45,7 +42,21 @@ window.onload = function() {
           performRequest('GET', freshNewsRequest)
             .then(response => response.json())
             .then(jsonData => mainContainer.setInnerElemenst(jsonData))
+            .catch(error => {
+              import('./errorHandler/errorHandler').then(module => {
+                const singletonHandler = module.ErrorHandler.getInstance()
+                singletonHandler.error = error
+                singletonHandler.createMarkup()
+              })
+            })
         })
+      })
+    })
+    .catch(error => {
+      import('./errorHandler/errorHandler').then(module => {
+        const singletonHandler = module.ErrorHandler.getInstance()
+        singletonHandler.error = error
+        singletonHandler.createMarkup()
       })
     })
 }
