@@ -38,10 +38,12 @@ window.onload = function() {
           navigation.activeBtn.classList.remove('active')
           buttonHTML.classList.add('active')
           navigation.activeBtn = buttonHTML
-          const freshNewsRequest = button.formNewsRequest()
-          performRequest('GET', freshNewsRequest)
+          button
+            .formNewsRequest()
             .then(response => response.json())
-            .then(jsonData => mainContainer.setInnerElemenst(jsonData))
+            .then(
+              jsonData => mainContainer.setInnerElemenst(jsonData) || jsonData
+            )
             .catch(error => {
               import('./errorHandler/errorHandler').then(module => {
                 const singletonHandler = module.ErrorHandler.getInstance()
