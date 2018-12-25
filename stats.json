@@ -1,0 +1,1457 @@
+{
+  "errors": [
+    "./src/img/eye.jpg 1:0\nModule parse failed: Unexpected character '�' (1:0)\nYou may need an appropriate loader to handle this file type.\n(Source code omitted for this binary file)\n @ ./src/index.js 5:0-23",
+    "./src/style/style.scss 1:5\nModule parse failed: Unexpected token (1:5)\nYou may need an appropriate loader to handle this file type.\n> body {\n|     display: flex;\n|     flex-flow: column;\n @ ./src/index.js 2:0-27",
+    "./src/style/normalize.scss 1:5\nModule parse failed: Unexpected token (1:5)\nYou may need an appropriate loader to handle this file type.\n> html {\n|     line-height: 1.15;\n|     -ms-text-size-adjust: 100%;\n @ ./src/index.js 1:0-31"
+  ],
+  "warnings": [
+    "configuration\nThe 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.\nYou can also set it to 'none' to disable any default behavior. Learn more: https://webpack.js.org/concepts/mode/"
+  ],
+  "version": "4.28.1",
+  "hash": "21c3951218984b662373",
+  "time": 186,
+  "builtAt": 1545763624593,
+  "publicPath": "",
+  "outputPath": "D:\\EPAM education\\Front Camp\\webpack rewrite\\dist",
+  "assetsByChunkName": {
+    "main": "main.js"
+  },
+  "assets": [
+    {
+      "name": "main.js",
+      "size": 5501,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "main"
+      ]
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "main.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "main": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "main.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "size": 8842,
+      "names": [
+        "main"
+      ],
+      "files": [
+        "main.js"
+      ],
+      "hash": "d947c8539f18473d8dc9",
+      "siblings": [],
+      "parents": [],
+      "children": [],
+      "childrenByOrder": {},
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\style\\normalize.scss",
+          "name": "./src/style/normalize.scss",
+          "index": 1,
+          "index2": 0,
+          "size": 196,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "name": "./src/index.js",
+              "profile": {
+                "factory": 47,
+                "building": 17
+              }
+            }
+          ],
+          "profile": {
+            "factory": 20,
+            "building": 7
+          },
+          "failed": true,
+          "errors": 1,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": 3,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js 43cc567bd48879ee3adbea81a22952bb",
+              "module": "./src/index.js + 5 modules",
+              "moduleName": "./src/index.js + 5 modules",
+              "type": "harmony side effect evaluation",
+              "userRequest": "./style/normalize.scss",
+              "loc": "1:0-31"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 1,
+          "source": "throw new Error(\"Module parse failed: Unexpected token (1:5)\\nYou may need an appropriate loader to handle this file type.\\n> html {\\n|     line-height: 1.15;\\n|     -ms-text-size-adjust: 100%;\");"
+        },
+        {
+          "id": 1,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\style\\style.scss",
+          "name": "./src/style/style.scss",
+          "index": 2,
+          "index2": 1,
+          "size": 183,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "name": "./src/index.js",
+              "profile": {
+                "factory": 47,
+                "building": 17
+              }
+            }
+          ],
+          "profile": {
+            "factory": 20,
+            "building": 7
+          },
+          "failed": true,
+          "errors": 1,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": 3,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js 43cc567bd48879ee3adbea81a22952bb",
+              "module": "./src/index.js + 5 modules",
+              "moduleName": "./src/index.js + 5 modules",
+              "type": "harmony side effect evaluation",
+              "userRequest": "./style/style.scss",
+              "loc": "2:0-27"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 1,
+          "source": "throw new Error(\"Module parse failed: Unexpected token (1:5)\\nYou may need an appropriate loader to handle this file type.\\n> body {\\n|     display: flex;\\n|     flex-flow: column;\");"
+        },
+        {
+          "id": 2,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\img\\eye.jpg",
+          "name": "./src/img/eye.jpg",
+          "index": 8,
+          "index2": 7,
+          "size": 177,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "name": "./src/index.js",
+              "profile": {
+                "factory": 47,
+                "building": 17
+              }
+            }
+          ],
+          "profile": {
+            "factory": 20,
+            "building": 7
+          },
+          "failed": true,
+          "errors": 1,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": 3,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js 43cc567bd48879ee3adbea81a22952bb",
+              "module": "./src/index.js + 5 modules",
+              "moduleName": "./src/index.js + 5 modules",
+              "type": "harmony side effect evaluation",
+              "userRequest": "./img/eye.jpg",
+              "loc": "5:0-23"
+            }
+          ],
+          "usedExports": false,
+          "providedExports": null,
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is not an ECMAScript module"
+          ],
+          "depth": 1,
+          "source": "throw new Error(\"Module parse failed: Unexpected character '�' (1:0)\\nYou may need an appropriate loader to handle this file type.\\n(Source code omitted for this binary file)\");"
+        },
+        {
+          "id": 3,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js 43cc567bd48879ee3adbea81a22952bb",
+          "name": "./src/index.js + 5 modules",
+          "index": 0,
+          "index2": 8,
+          "size": 8286,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "type": "single entry",
+              "userRequest": "./src",
+              "loc": "main"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": 0,
+          "modules": [
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "name": "./src/index.js",
+              "index": 0,
+              "index2": 8,
+              "size": 1228,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": null,
+              "issuerId": null,
+              "issuerName": null,
+              "issuerPath": null,
+              "profile": {
+                "factory": 47,
+                "building": 17
+              },
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": null,
+                  "module": null,
+                  "moduleName": null,
+                  "type": "single entry",
+                  "userRequest": "./src",
+                  "loc": "main"
+                }
+              ],
+              "usedExports": true,
+              "providedExports": [],
+              "optimizationBailout": [
+                "ModuleConcatenation bailout: Module is an entry point"
+              ],
+              "depth": 0,
+              "source": "import './style/normalize.scss'\nimport './style/style.scss'\nimport { ContainerElement } from './containerElement/containerElement.js'\nimport { API_KEY, formRequest } from './utilities/utilities'\nimport './img/eye.jpg';\n\nwindow.onload = function() {\n  const mainContainer = new ContainerElement(\n    document.getElementById('output'),\n    'field'\n  )\n  const navigation = new ContainerElement(\n    document.getElementById('buttons'),\n    'navigation'\n  )\n  const request = formRequest(API_KEY)\n  navigation\n    .loadElements(request)\n    .then(buttons => {\n      const [firstButton, ...restButtons] = buttons.innerElementsList\n      return firstButton\n    })\n    .then(firstBtn => {\n      const requestForNews = firstBtn.formNewsRequest()\n      mainContainer.loadElements(requestForNews)\n      navigation.innerElementsList.forEach(button => {\n        const buttonHTML = button.element\n        buttonHTML.addEventListener('click', () => {\n          navigation.activeBtn.classList.remove('active')\n          buttonHTML.classList.add('active')\n          navigation.activeBtn = buttonHTML\n          const freshNewsRequest = button.formNewsRequest()\n          mainContainer.loadElements(freshNewsRequest)\n        })\n      })\n    })\n}\n"
+            },
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\utilities\\utilities.js",
+              "name": "./src/utilities/utilities.js",
+              "index": 6,
+              "index2": 3,
+              "size": 320,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "issuerId": null,
+              "issuerName": "./src/index.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+                  "name": "./src/index.js",
+                  "profile": {
+                    "factory": 47,
+                    "building": 17
+                  }
+                }
+              ],
+              "profile": {
+                "factory": 20,
+                "building": 7
+              },
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\button\\button.js",
+                  "module": "./src/button/button.js",
+                  "moduleName": "./src/button/button.js",
+                  "type": "harmony side effect evaluation",
+                  "userRequest": "../utilities/utilities",
+                  "loc": "2:0-60"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+                  "module": "./src/index.js",
+                  "moduleName": "./src/index.js",
+                  "type": "harmony side effect evaluation",
+                  "userRequest": "./utilities/utilities",
+                  "loc": "4:0-60"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+                  "module": "./src/index.js",
+                  "moduleName": "./src/index.js",
+                  "type": "harmony import specifier",
+                  "userRequest": "./utilities/utilities",
+                  "loc": "16:18-29"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+                  "module": "./src/index.js",
+                  "moduleName": "./src/index.js",
+                  "type": "harmony import specifier",
+                  "userRequest": "./utilities/utilities",
+                  "loc": "16:30-37"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\button\\button.js",
+                  "module": "./src/button/button.js",
+                  "moduleName": "./src/button/button.js",
+                  "type": "harmony import specifier",
+                  "userRequest": "../utilities/utilities",
+                  "loc": "29:15-26"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\button\\button.js",
+                  "module": "./src/button/button.js",
+                  "moduleName": "./src/button/button.js",
+                  "type": "harmony import specifier",
+                  "userRequest": "../utilities/utilities",
+                  "loc": "29:27-34"
+                }
+              ],
+              "usedExports": [
+                "formRequest",
+                "API_KEY"
+              ],
+              "providedExports": [
+                "API_KEY",
+                "formRequest"
+              ],
+              "optimizationBailout": [],
+              "depth": 1,
+              "source": "export const API_KEY = 'b7898b8ae1f042849321a38b58c68df0';\nexport function formRequest(apiKey, channelName = '') {\n    const url = `https://newsapi.org/v1/${\n        channelName === '' ? 'sources' : 'articles'\n        }?${channelName === '' ? '' : `source=${channelName}`}&apiKey=${apiKey}`\n    return new Request(url)\n}"
+            },
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "name": "./src/containerElement/containerElement.js",
+              "index": 3,
+              "index2": 6,
+              "size": 3888,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "issuerId": null,
+              "issuerName": "./src/index.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+                  "name": "./src/index.js",
+                  "profile": {
+                    "factory": 47,
+                    "building": 17
+                  }
+                }
+              ],
+              "profile": {
+                "factory": 20,
+                "building": 7
+              },
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+                  "module": "./src/index.js",
+                  "moduleName": "./src/index.js",
+                  "type": "harmony side effect evaluation",
+                  "userRequest": "./containerElement/containerElement.js",
+                  "loc": "3:0-73"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+                  "module": "./src/index.js",
+                  "moduleName": "./src/index.js",
+                  "type": "harmony import specifier",
+                  "userRequest": "./containerElement/containerElement.js",
+                  "loc": "8:28-44"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+                  "module": "./src/index.js",
+                  "moduleName": "./src/index.js",
+                  "type": "harmony import specifier",
+                  "userRequest": "./containerElement/containerElement.js",
+                  "loc": "12:25-41"
+                }
+              ],
+              "usedExports": [
+                "ContainerElement"
+              ],
+              "providedExports": [
+                "ContainerElement"
+              ],
+              "optimizationBailout": [],
+              "depth": 1,
+              "source": "import {CommonElement} from \"../commonElement/commonElement\";\nimport {Button} from \"../button/button\";\nimport {Article} from \"../article/article\";\n\nconst nameToClass = {\n    navigation: Button,\n    field: Article,\n}\n\nexport class ContainerElement extends CommonElement {\n    constructor(htmlElement, name) {\n        super(htmlElement);\n        this.innerElementsResponseList = [];\n        this.innerHTMLElementsList = [];\n        this.innerElementsList = [];\n        this.name = name;\n        this.activeButton;\n        this.height = '';\n    }\n\n    get elementHeght() {\n        return this.height\n    }\n\n    set elementHeight(height) {\n        this.height = height\n    }\n\n    get activeBtn() {\n        return this.activeButton\n    }\n\n    set activeBtn(element) {\n        this.activeButton = element\n    }\n\n    async loadElements(request) {\n        const innerListsObject = await fetch(request)\n            .then(response => response.json())\n            .then(answer => {\n                this.innerElementsResponseList =\n                    answer.articles ||\n                    this.transformResponseJSONToInnerElementsList(answer.sources)\n                this.createInnerElements()\n                return {\n                    innerElementsResponseList: this.innerElementsResponseList,\n                    innerHTMLElementsList: this.innerHTMLElementsList,\n                    innerElementsList: this.innerElementsList,\n                }\n            })\n        return innerListsObject;\n    }\n\n    transformResponseJSONToInnerElementsList(innerElements) {\n        return innerElements.map(source => source.id)\n    }\n\n    createInnerElements() {\n        this.clearElement()\n        const documentFragment = this.createFragment()\n\n        let innerElementWithRange = {\n            from: 0,\n            to: this.innerElementsResponseList.length,\n            createInnerElement: this.createInnerElement,\n            innerElementsList: this.innerElementsResponseList,\n            context: this,\n            [Symbol.iterator]() {\n                let current = this.from\n                let last = this.to\n                let createInnerElement = this.createInnerElement\n                let innerElementsList = this.innerElementsList\n                let context = this.context\n\n                return {\n                    next() {\n                        if (current < last) {\n                            const active = current === 0\n                            const value = innerElementsList[current++]\n                            return {\n                                done: false,\n                                value: createInnerElement.call(context, { value, active }),\n                            }\n                        } else {\n                            return {\n                                done: true,\n                            }\n                        }\n                    },\n                }\n            },\n        }\n\n        for (let innerElement of innerElementWithRange) {\n            this.innerHTMLElementsList.push(innerElement)\n            documentFragment.appendChild(innerElement)\n        }\n\n        this.addChild(documentFragment)\n    }\n\n    createInnerElement({ value, active }) {\n        const classOptions = value.title\n            ? value\n            : {\n                text: value,\n                classes: ['navigation_btn'],\n            }\n        if (active && !value.title) {\n            classOptions.classes.push('active')\n        }\n        const innerElement = new nameToClass[this.name](classOptions)\n        innerElement.formHTMLElement()\n        this.innerElementsList.push(innerElement)\n        if (active && !value.title) {\n            this.activeBtn = innerElement.element\n        }\n        return innerElement.element\n    }\n\n    createFragment() {\n        const fragment = document.createDocumentFragment()\n        return fragment\n    }\n}"
+            },
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\commonElement\\commonElement.js",
+              "name": "./src/commonElement/commonElement.js",
+              "index": 4,
+              "index2": 2,
+              "size": 555,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "issuerId": null,
+              "issuerName": "./src/containerElement/containerElement.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+                  "name": "./src/index.js",
+                  "profile": {
+                    "factory": 47,
+                    "building": 17
+                  }
+                },
+                {
+                  "id": null,
+                  "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+                  "name": "./src/containerElement/containerElement.js",
+                  "profile": {
+                    "factory": 20,
+                    "building": 7
+                  }
+                }
+              ],
+              "profile": {
+                "factory": 9,
+                "building": 9,
+                "dependencies": 1
+              },
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+                  "module": "./src/containerElement/containerElement.js",
+                  "moduleName": "./src/containerElement/containerElement.js",
+                  "type": "harmony side effect evaluation",
+                  "userRequest": "../commonElement/commonElement",
+                  "loc": "1:0-61"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\button\\button.js",
+                  "module": "./src/button/button.js",
+                  "moduleName": "./src/button/button.js",
+                  "type": "harmony side effect evaluation",
+                  "userRequest": "../commonElement/commonElement",
+                  "loc": "1:0-61"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\article\\article.js",
+                  "module": "./src/article/article.js",
+                  "moduleName": "./src/article/article.js",
+                  "type": "harmony side effect evaluation",
+                  "userRequest": "../commonElement/commonElement",
+                  "loc": "1:0-61"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\article\\article.js",
+                  "module": "./src/article/article.js",
+                  "moduleName": "./src/article/article.js",
+                  "type": "harmony import specifier",
+                  "userRequest": "../commonElement/commonElement",
+                  "loc": "3:29-42"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\button\\button.js",
+                  "module": "./src/button/button.js",
+                  "moduleName": "./src/button/button.js",
+                  "type": "harmony import specifier",
+                  "userRequest": "../commonElement/commonElement",
+                  "loc": "4:30-43"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+                  "module": "./src/containerElement/containerElement.js",
+                  "moduleName": "./src/containerElement/containerElement.js",
+                  "type": "harmony import specifier",
+                  "userRequest": "../commonElement/commonElement",
+                  "loc": "10:38-51"
+                }
+              ],
+              "usedExports": [
+                "CommonElement"
+              ],
+              "providedExports": [
+                "CommonElement"
+              ],
+              "optimizationBailout": [],
+              "depth": 2,
+              "source": "export class CommonElement {\n    constructor(htmlElementOrTagName) {\n        this.htmlElement =\n            typeof htmlElementOrTagName === 'string'\n                ? document.createElement(htmlElementOrTagName)\n                : htmlElementOrTagName\n    }\n\n    get element() {\n        return this.htmlElement\n    }\n\n    set element(newHTMLElement) {\n        this.htmlElement = newHTMLElement\n    }\n\n    addChild(childElement) {\n        this.htmlElement.appendChild(childElement)\n    }\n\n    clearElement() {\n        this.htmlElement.innerHTML = ''\n    }\n}"
+            },
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\button\\button.js",
+              "name": "./src/button/button.js",
+              "index": 5,
+              "index2": 4,
+              "size": 1020,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "issuerId": null,
+              "issuerName": "./src/containerElement/containerElement.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+                  "name": "./src/index.js",
+                  "profile": {
+                    "factory": 47,
+                    "building": 17
+                  }
+                },
+                {
+                  "id": null,
+                  "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+                  "name": "./src/containerElement/containerElement.js",
+                  "profile": {
+                    "factory": 20,
+                    "building": 7
+                  }
+                }
+              ],
+              "profile": {
+                "factory": 9,
+                "building": 9,
+                "dependencies": 1
+              },
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+                  "module": "./src/containerElement/containerElement.js",
+                  "moduleName": "./src/containerElement/containerElement.js",
+                  "type": "harmony side effect evaluation",
+                  "userRequest": "../button/button",
+                  "loc": "2:0-40"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+                  "module": "./src/containerElement/containerElement.js",
+                  "moduleName": "./src/containerElement/containerElement.js",
+                  "type": "harmony import specifier",
+                  "userRequest": "../button/button",
+                  "loc": "6:16-22"
+                }
+              ],
+              "usedExports": [
+                "Button"
+              ],
+              "providedExports": [
+                "Button"
+              ],
+              "optimizationBailout": [],
+              "depth": 2,
+              "source": "import {CommonElement} from \"../commonElement/commonElement\";\nimport {API_KEY, formRequest} from \"../utilities/utilities\";\n\nexport   class Button extends CommonElement {\n    constructor({ text, ...classesOptions }) {\n        super('input')\n        this.text = text\n        this.classList = classesOptions.classes\n        this.active = classesOptions.active\n    }\n\n    clearElement() {\n        super.clearElement()\n        this.htmlElement.classList.remove(this.classList)\n    }\n\n    formHTMLElement() {\n        this.htmlElement.setAttribute('type', 'submit')\n        this.classList.forEach(elementClass =>\n            this.htmlElement.classList.add(elementClass)\n        )\n        const emptySubstringLength = Math.floor((20 - this.text) / 2);\n        const newText = (this.text.length < 20) ?\n            `${this.text.padStart(emptySubstringLength).padEnd(emptySubstringLength)}` : this.text;\n        this.htmlElement.value = newText\n    }\n\n    formNewsRequest() {\n        return formRequest(API_KEY, this.text)\n    }\n}"
+            },
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\article\\article.js",
+              "name": "./src/article/article.js",
+              "index": 7,
+              "index2": 5,
+              "size": 1260,
+              "cacheable": true,
+              "built": true,
+              "optional": false,
+              "prefetched": false,
+              "chunks": [],
+              "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "issuerId": null,
+              "issuerName": "./src/containerElement/containerElement.js",
+              "issuerPath": [
+                {
+                  "id": null,
+                  "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+                  "name": "./src/index.js",
+                  "profile": {
+                    "factory": 47,
+                    "building": 17
+                  }
+                },
+                {
+                  "id": null,
+                  "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+                  "name": "./src/containerElement/containerElement.js",
+                  "profile": {
+                    "factory": 20,
+                    "building": 7
+                  }
+                }
+              ],
+              "profile": {
+                "factory": 9,
+                "building": 9,
+                "dependencies": 1
+              },
+              "failed": false,
+              "errors": 0,
+              "warnings": 0,
+              "assets": [],
+              "reasons": [
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+                  "module": "./src/containerElement/containerElement.js",
+                  "moduleName": "./src/containerElement/containerElement.js",
+                  "type": "harmony side effect evaluation",
+                  "userRequest": "../article/article",
+                  "loc": "3:0-43"
+                },
+                {
+                  "moduleId": null,
+                  "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+                  "module": "./src/containerElement/containerElement.js",
+                  "moduleName": "./src/containerElement/containerElement.js",
+                  "type": "harmony import specifier",
+                  "userRequest": "../article/article",
+                  "loc": "7:11-18"
+                }
+              ],
+              "usedExports": [
+                "Article"
+              ],
+              "providedExports": [
+                "Article"
+              ],
+              "optimizationBailout": [],
+              "depth": 2,
+              "source": "import {CommonElement} from \"../commonElement/commonElement\";\n\nexport class Article extends CommonElement {\n    constructor(options) {\n        super('article')\n        this.publishedAt = options.publishedAt || ''\n        this.title = options.title || ''\n        this.urlToImage = options.urlToImage || './img/eye.jpg'\n        this.url = options.url || ''\n        this.imgWidth = 230\n    }\n\n    formHTMLElement() {\n        this.htmlElement.innerHTML = `<a class=\"news_link\" href=\"${this.url}\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"news_image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"news_image\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t<time class=\"news_pub-time\" pubdate=\"${\n            this.publishedAt\n            }\">${this.formatTimeToReadable(this.publishedAt)}</time>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<h2  class=\"news_headline\">${this.title}</h2>\n\t\t\t\t\t\t\t\t\t\t</a>`\n        this.htmlElement.classList.add('news')\n        const el = this.htmlElement.querySelector('.news_image')\n        el.style.backgroundImage = `url(\\'${this.urlToImage}\\')`\n    }\n\n    formatTimeToReadable(timeInternationalFormat) {\n        const [date, timeWithSeconds] = timeInternationalFormat.split('T')\n        return timeWithSeconds\n            ? timeWithSeconds.slice(0, timeWithSeconds.lastIndexOf(':'))\n            : ''\n    }\n}"
+            }
+          ],
+          "filteredModules": 0
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "module": "",
+          "moduleIdentifier": "",
+          "moduleName": "",
+          "loc": "main",
+          "request": "./src",
+          "reasons": []
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\style\\normalize.scss",
+      "name": "./src/style/normalize.scss",
+      "index": 1,
+      "index2": 0,
+      "size": 196,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+          "name": "./src/index.js",
+          "profile": {
+            "factory": 47,
+            "building": 17
+          }
+        }
+      ],
+      "profile": {
+        "factory": 20,
+        "building": 7
+      },
+      "failed": true,
+      "errors": 1,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": 3,
+          "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js 43cc567bd48879ee3adbea81a22952bb",
+          "module": "./src/index.js + 5 modules",
+          "moduleName": "./src/index.js + 5 modules",
+          "type": "harmony side effect evaluation",
+          "userRequest": "./style/normalize.scss",
+          "loc": "1:0-31"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 1,
+      "source": "throw new Error(\"Module parse failed: Unexpected token (1:5)\\nYou may need an appropriate loader to handle this file type.\\n> html {\\n|     line-height: 1.15;\\n|     -ms-text-size-adjust: 100%;\");"
+    },
+    {
+      "id": 1,
+      "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\style\\style.scss",
+      "name": "./src/style/style.scss",
+      "index": 2,
+      "index2": 1,
+      "size": 183,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+          "name": "./src/index.js",
+          "profile": {
+            "factory": 47,
+            "building": 17
+          }
+        }
+      ],
+      "profile": {
+        "factory": 20,
+        "building": 7
+      },
+      "failed": true,
+      "errors": 1,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": 3,
+          "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js 43cc567bd48879ee3adbea81a22952bb",
+          "module": "./src/index.js + 5 modules",
+          "moduleName": "./src/index.js + 5 modules",
+          "type": "harmony side effect evaluation",
+          "userRequest": "./style/style.scss",
+          "loc": "2:0-27"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 1,
+      "source": "throw new Error(\"Module parse failed: Unexpected token (1:5)\\nYou may need an appropriate loader to handle this file type.\\n> body {\\n|     display: flex;\\n|     flex-flow: column;\");"
+    },
+    {
+      "id": 2,
+      "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\img\\eye.jpg",
+      "name": "./src/img/eye.jpg",
+      "index": 8,
+      "index2": 7,
+      "size": 177,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+      "issuerId": null,
+      "issuerName": "./src/index.js",
+      "issuerPath": [
+        {
+          "id": null,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+          "name": "./src/index.js",
+          "profile": {
+            "factory": 47,
+            "building": 17
+          }
+        }
+      ],
+      "profile": {
+        "factory": 20,
+        "building": 7
+      },
+      "failed": true,
+      "errors": 1,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": 3,
+          "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js 43cc567bd48879ee3adbea81a22952bb",
+          "module": "./src/index.js + 5 modules",
+          "moduleName": "./src/index.js + 5 modules",
+          "type": "harmony side effect evaluation",
+          "userRequest": "./img/eye.jpg",
+          "loc": "5:0-23"
+        }
+      ],
+      "usedExports": false,
+      "providedExports": null,
+      "optimizationBailout": [
+        "ModuleConcatenation bailout: Module is not an ECMAScript module"
+      ],
+      "depth": 1,
+      "source": "throw new Error(\"Module parse failed: Unexpected character '�' (1:0)\\nYou may need an appropriate loader to handle this file type.\\n(Source code omitted for this binary file)\");"
+    },
+    {
+      "id": 3,
+      "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js 43cc567bd48879ee3adbea81a22952bb",
+      "name": "./src/index.js + 5 modules",
+      "index": 0,
+      "index2": 8,
+      "size": 8286,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "issuerPath": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "assets": [],
+      "reasons": [
+        {
+          "moduleId": null,
+          "moduleIdentifier": null,
+          "module": null,
+          "moduleName": null,
+          "type": "single entry",
+          "userRequest": "./src",
+          "loc": "main"
+        }
+      ],
+      "usedExports": true,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": 0,
+      "modules": [
+        {
+          "id": null,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+          "name": "./src/index.js",
+          "index": 0,
+          "index2": 8,
+          "size": 1228,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "issuerPath": null,
+          "profile": {
+            "factory": 47,
+            "building": 17
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": null,
+              "module": null,
+              "moduleName": null,
+              "type": "single entry",
+              "userRequest": "./src",
+              "loc": "main"
+            }
+          ],
+          "usedExports": true,
+          "providedExports": [],
+          "optimizationBailout": [
+            "ModuleConcatenation bailout: Module is an entry point"
+          ],
+          "depth": 0,
+          "source": "import './style/normalize.scss'\nimport './style/style.scss'\nimport { ContainerElement } from './containerElement/containerElement.js'\nimport { API_KEY, formRequest } from './utilities/utilities'\nimport './img/eye.jpg';\n\nwindow.onload = function() {\n  const mainContainer = new ContainerElement(\n    document.getElementById('output'),\n    'field'\n  )\n  const navigation = new ContainerElement(\n    document.getElementById('buttons'),\n    'navigation'\n  )\n  const request = formRequest(API_KEY)\n  navigation\n    .loadElements(request)\n    .then(buttons => {\n      const [firstButton, ...restButtons] = buttons.innerElementsList\n      return firstButton\n    })\n    .then(firstBtn => {\n      const requestForNews = firstBtn.formNewsRequest()\n      mainContainer.loadElements(requestForNews)\n      navigation.innerElementsList.forEach(button => {\n        const buttonHTML = button.element\n        buttonHTML.addEventListener('click', () => {\n          navigation.activeBtn.classList.remove('active')\n          buttonHTML.classList.add('active')\n          navigation.activeBtn = buttonHTML\n          const freshNewsRequest = button.formNewsRequest()\n          mainContainer.loadElements(freshNewsRequest)\n        })\n      })\n    })\n}\n"
+        },
+        {
+          "id": null,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\utilities\\utilities.js",
+          "name": "./src/utilities/utilities.js",
+          "index": 6,
+          "index2": 3,
+          "size": 320,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [],
+          "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "name": "./src/index.js",
+              "profile": {
+                "factory": 47,
+                "building": 17
+              }
+            }
+          ],
+          "profile": {
+            "factory": 20,
+            "building": 7
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\button\\button.js",
+              "module": "./src/button/button.js",
+              "moduleName": "./src/button/button.js",
+              "type": "harmony side effect evaluation",
+              "userRequest": "../utilities/utilities",
+              "loc": "2:0-60"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony side effect evaluation",
+              "userRequest": "./utilities/utilities",
+              "loc": "4:0-60"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony import specifier",
+              "userRequest": "./utilities/utilities",
+              "loc": "16:18-29"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony import specifier",
+              "userRequest": "./utilities/utilities",
+              "loc": "16:30-37"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\button\\button.js",
+              "module": "./src/button/button.js",
+              "moduleName": "./src/button/button.js",
+              "type": "harmony import specifier",
+              "userRequest": "../utilities/utilities",
+              "loc": "29:15-26"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\button\\button.js",
+              "module": "./src/button/button.js",
+              "moduleName": "./src/button/button.js",
+              "type": "harmony import specifier",
+              "userRequest": "../utilities/utilities",
+              "loc": "29:27-34"
+            }
+          ],
+          "usedExports": [
+            "formRequest",
+            "API_KEY"
+          ],
+          "providedExports": [
+            "API_KEY",
+            "formRequest"
+          ],
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "export const API_KEY = 'b7898b8ae1f042849321a38b58c68df0';\nexport function formRequest(apiKey, channelName = '') {\n    const url = `https://newsapi.org/v1/${\n        channelName === '' ? 'sources' : 'articles'\n        }?${channelName === '' ? '' : `source=${channelName}`}&apiKey=${apiKey}`\n    return new Request(url)\n}"
+        },
+        {
+          "id": null,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+          "name": "./src/containerElement/containerElement.js",
+          "index": 3,
+          "index2": 6,
+          "size": 3888,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [],
+          "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+          "issuerId": null,
+          "issuerName": "./src/index.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "name": "./src/index.js",
+              "profile": {
+                "factory": 47,
+                "building": 17
+              }
+            }
+          ],
+          "profile": {
+            "factory": 20,
+            "building": 7
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony side effect evaluation",
+              "userRequest": "./containerElement/containerElement.js",
+              "loc": "3:0-73"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony import specifier",
+              "userRequest": "./containerElement/containerElement.js",
+              "loc": "8:28-44"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "module": "./src/index.js",
+              "moduleName": "./src/index.js",
+              "type": "harmony import specifier",
+              "userRequest": "./containerElement/containerElement.js",
+              "loc": "12:25-41"
+            }
+          ],
+          "usedExports": [
+            "ContainerElement"
+          ],
+          "providedExports": [
+            "ContainerElement"
+          ],
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "import {CommonElement} from \"../commonElement/commonElement\";\nimport {Button} from \"../button/button\";\nimport {Article} from \"../article/article\";\n\nconst nameToClass = {\n    navigation: Button,\n    field: Article,\n}\n\nexport class ContainerElement extends CommonElement {\n    constructor(htmlElement, name) {\n        super(htmlElement);\n        this.innerElementsResponseList = [];\n        this.innerHTMLElementsList = [];\n        this.innerElementsList = [];\n        this.name = name;\n        this.activeButton;\n        this.height = '';\n    }\n\n    get elementHeght() {\n        return this.height\n    }\n\n    set elementHeight(height) {\n        this.height = height\n    }\n\n    get activeBtn() {\n        return this.activeButton\n    }\n\n    set activeBtn(element) {\n        this.activeButton = element\n    }\n\n    async loadElements(request) {\n        const innerListsObject = await fetch(request)\n            .then(response => response.json())\n            .then(answer => {\n                this.innerElementsResponseList =\n                    answer.articles ||\n                    this.transformResponseJSONToInnerElementsList(answer.sources)\n                this.createInnerElements()\n                return {\n                    innerElementsResponseList: this.innerElementsResponseList,\n                    innerHTMLElementsList: this.innerHTMLElementsList,\n                    innerElementsList: this.innerElementsList,\n                }\n            })\n        return innerListsObject;\n    }\n\n    transformResponseJSONToInnerElementsList(innerElements) {\n        return innerElements.map(source => source.id)\n    }\n\n    createInnerElements() {\n        this.clearElement()\n        const documentFragment = this.createFragment()\n\n        let innerElementWithRange = {\n            from: 0,\n            to: this.innerElementsResponseList.length,\n            createInnerElement: this.createInnerElement,\n            innerElementsList: this.innerElementsResponseList,\n            context: this,\n            [Symbol.iterator]() {\n                let current = this.from\n                let last = this.to\n                let createInnerElement = this.createInnerElement\n                let innerElementsList = this.innerElementsList\n                let context = this.context\n\n                return {\n                    next() {\n                        if (current < last) {\n                            const active = current === 0\n                            const value = innerElementsList[current++]\n                            return {\n                                done: false,\n                                value: createInnerElement.call(context, { value, active }),\n                            }\n                        } else {\n                            return {\n                                done: true,\n                            }\n                        }\n                    },\n                }\n            },\n        }\n\n        for (let innerElement of innerElementWithRange) {\n            this.innerHTMLElementsList.push(innerElement)\n            documentFragment.appendChild(innerElement)\n        }\n\n        this.addChild(documentFragment)\n    }\n\n    createInnerElement({ value, active }) {\n        const classOptions = value.title\n            ? value\n            : {\n                text: value,\n                classes: ['navigation_btn'],\n            }\n        if (active && !value.title) {\n            classOptions.classes.push('active')\n        }\n        const innerElement = new nameToClass[this.name](classOptions)\n        innerElement.formHTMLElement()\n        this.innerElementsList.push(innerElement)\n        if (active && !value.title) {\n            this.activeBtn = innerElement.element\n        }\n        return innerElement.element\n    }\n\n    createFragment() {\n        const fragment = document.createDocumentFragment()\n        return fragment\n    }\n}"
+        },
+        {
+          "id": null,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\commonElement\\commonElement.js",
+          "name": "./src/commonElement/commonElement.js",
+          "index": 4,
+          "index2": 2,
+          "size": 555,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [],
+          "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+          "issuerId": null,
+          "issuerName": "./src/containerElement/containerElement.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "name": "./src/index.js",
+              "profile": {
+                "factory": 47,
+                "building": 17
+              }
+            },
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "name": "./src/containerElement/containerElement.js",
+              "profile": {
+                "factory": 20,
+                "building": 7
+              }
+            }
+          ],
+          "profile": {
+            "factory": 9,
+            "building": 9,
+            "dependencies": 1
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "module": "./src/containerElement/containerElement.js",
+              "moduleName": "./src/containerElement/containerElement.js",
+              "type": "harmony side effect evaluation",
+              "userRequest": "../commonElement/commonElement",
+              "loc": "1:0-61"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\button\\button.js",
+              "module": "./src/button/button.js",
+              "moduleName": "./src/button/button.js",
+              "type": "harmony side effect evaluation",
+              "userRequest": "../commonElement/commonElement",
+              "loc": "1:0-61"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\article\\article.js",
+              "module": "./src/article/article.js",
+              "moduleName": "./src/article/article.js",
+              "type": "harmony side effect evaluation",
+              "userRequest": "../commonElement/commonElement",
+              "loc": "1:0-61"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\article\\article.js",
+              "module": "./src/article/article.js",
+              "moduleName": "./src/article/article.js",
+              "type": "harmony import specifier",
+              "userRequest": "../commonElement/commonElement",
+              "loc": "3:29-42"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\button\\button.js",
+              "module": "./src/button/button.js",
+              "moduleName": "./src/button/button.js",
+              "type": "harmony import specifier",
+              "userRequest": "../commonElement/commonElement",
+              "loc": "4:30-43"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "module": "./src/containerElement/containerElement.js",
+              "moduleName": "./src/containerElement/containerElement.js",
+              "type": "harmony import specifier",
+              "userRequest": "../commonElement/commonElement",
+              "loc": "10:38-51"
+            }
+          ],
+          "usedExports": [
+            "CommonElement"
+          ],
+          "providedExports": [
+            "CommonElement"
+          ],
+          "optimizationBailout": [],
+          "depth": 2,
+          "source": "export class CommonElement {\n    constructor(htmlElementOrTagName) {\n        this.htmlElement =\n            typeof htmlElementOrTagName === 'string'\n                ? document.createElement(htmlElementOrTagName)\n                : htmlElementOrTagName\n    }\n\n    get element() {\n        return this.htmlElement\n    }\n\n    set element(newHTMLElement) {\n        this.htmlElement = newHTMLElement\n    }\n\n    addChild(childElement) {\n        this.htmlElement.appendChild(childElement)\n    }\n\n    clearElement() {\n        this.htmlElement.innerHTML = ''\n    }\n}"
+        },
+        {
+          "id": null,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\button\\button.js",
+          "name": "./src/button/button.js",
+          "index": 5,
+          "index2": 4,
+          "size": 1020,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [],
+          "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+          "issuerId": null,
+          "issuerName": "./src/containerElement/containerElement.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "name": "./src/index.js",
+              "profile": {
+                "factory": 47,
+                "building": 17
+              }
+            },
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "name": "./src/containerElement/containerElement.js",
+              "profile": {
+                "factory": 20,
+                "building": 7
+              }
+            }
+          ],
+          "profile": {
+            "factory": 9,
+            "building": 9,
+            "dependencies": 1
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "module": "./src/containerElement/containerElement.js",
+              "moduleName": "./src/containerElement/containerElement.js",
+              "type": "harmony side effect evaluation",
+              "userRequest": "../button/button",
+              "loc": "2:0-40"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "module": "./src/containerElement/containerElement.js",
+              "moduleName": "./src/containerElement/containerElement.js",
+              "type": "harmony import specifier",
+              "userRequest": "../button/button",
+              "loc": "6:16-22"
+            }
+          ],
+          "usedExports": [
+            "Button"
+          ],
+          "providedExports": [
+            "Button"
+          ],
+          "optimizationBailout": [],
+          "depth": 2,
+          "source": "import {CommonElement} from \"../commonElement/commonElement\";\nimport {API_KEY, formRequest} from \"../utilities/utilities\";\n\nexport   class Button extends CommonElement {\n    constructor({ text, ...classesOptions }) {\n        super('input')\n        this.text = text\n        this.classList = classesOptions.classes\n        this.active = classesOptions.active\n    }\n\n    clearElement() {\n        super.clearElement()\n        this.htmlElement.classList.remove(this.classList)\n    }\n\n    formHTMLElement() {\n        this.htmlElement.setAttribute('type', 'submit')\n        this.classList.forEach(elementClass =>\n            this.htmlElement.classList.add(elementClass)\n        )\n        const emptySubstringLength = Math.floor((20 - this.text) / 2);\n        const newText = (this.text.length < 20) ?\n            `${this.text.padStart(emptySubstringLength).padEnd(emptySubstringLength)}` : this.text;\n        this.htmlElement.value = newText\n    }\n\n    formNewsRequest() {\n        return formRequest(API_KEY, this.text)\n    }\n}"
+        },
+        {
+          "id": null,
+          "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\article\\article.js",
+          "name": "./src/article/article.js",
+          "index": 7,
+          "index2": 5,
+          "size": 1260,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [],
+          "issuer": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+          "issuerId": null,
+          "issuerName": "./src/containerElement/containerElement.js",
+          "issuerPath": [
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\index.js",
+              "name": "./src/index.js",
+              "profile": {
+                "factory": 47,
+                "building": 17
+              }
+            },
+            {
+              "id": null,
+              "identifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "name": "./src/containerElement/containerElement.js",
+              "profile": {
+                "factory": 20,
+                "building": 7
+              }
+            }
+          ],
+          "profile": {
+            "factory": 9,
+            "building": 9,
+            "dependencies": 1
+          },
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "assets": [],
+          "reasons": [
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "module": "./src/containerElement/containerElement.js",
+              "moduleName": "./src/containerElement/containerElement.js",
+              "type": "harmony side effect evaluation",
+              "userRequest": "../article/article",
+              "loc": "3:0-43"
+            },
+            {
+              "moduleId": null,
+              "moduleIdentifier": "D:\\EPAM education\\Front Camp\\webpack rewrite\\src\\containerElement\\containerElement.js",
+              "module": "./src/containerElement/containerElement.js",
+              "moduleName": "./src/containerElement/containerElement.js",
+              "type": "harmony import specifier",
+              "userRequest": "../article/article",
+              "loc": "7:11-18"
+            }
+          ],
+          "usedExports": [
+            "Article"
+          ],
+          "providedExports": [
+            "Article"
+          ],
+          "optimizationBailout": [],
+          "depth": 2,
+          "source": "import {CommonElement} from \"../commonElement/commonElement\";\n\nexport class Article extends CommonElement {\n    constructor(options) {\n        super('article')\n        this.publishedAt = options.publishedAt || ''\n        this.title = options.title || ''\n        this.urlToImage = options.urlToImage || './img/eye.jpg'\n        this.url = options.url || ''\n        this.imgWidth = 230\n    }\n\n    formHTMLElement() {\n        this.htmlElement.innerHTML = `<a class=\"news_link\" href=\"${this.url}\">\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"news_image-wrapper\">\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"news_image\"></div>\n\t\t\t\t\t\t\t\t\t\t\t\t<time class=\"news_pub-time\" pubdate=\"${\n            this.publishedAt\n            }\">${this.formatTimeToReadable(this.publishedAt)}</time>\n\t\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t\t<h2  class=\"news_headline\">${this.title}</h2>\n\t\t\t\t\t\t\t\t\t\t</a>`\n        this.htmlElement.classList.add('news')\n        const el = this.htmlElement.querySelector('.news_image')\n        el.style.backgroundImage = `url(\\'${this.urlToImage}\\')`\n    }\n\n    formatTimeToReadable(timeInternationalFormat) {\n        const [date, timeWithSeconds] = timeInternationalFormat.split('T')\n        return timeWithSeconds\n            ? timeWithSeconds.slice(0, timeWithSeconds.lastIndexOf(':'))\n            : ''\n    }\n}"
+        }
+      ],
+      "filteredModules": 0
+    }
+  ],
+  "filteredModules": 0,
+  "children": []
+}
