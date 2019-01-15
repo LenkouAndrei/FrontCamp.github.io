@@ -1,0 +1,24 @@
+{
+  "name": "node-js",
+  "version": "1.0.0",
+  "description": "FrontCamp program 2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LenkouAndrei/FrontCamp.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LenkouAndrei/FrontCamp.github.io/issues"
+  },
+  "homepage": "https://github.com/LenkouAndrei/FrontCamp.github.io#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "winston": "^3.1.0"
+  }
+}
