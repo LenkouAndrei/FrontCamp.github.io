@@ -4,11 +4,10 @@ html
             include styles.css
         title= title
     body
-    h1= 'News'
-- var values = news;
-- var links = urls;
-div(class="news-list")
-    each val in links
-        a(href='/news/'+ val)= values[val - 1]
-    else
-        li There are no values
+    div(class="container")
+        h1(class="headline")= 'News'
+        div(class="news-list")
+            each id in urls
+                a(href='/news/'+ id)= news[id - 1]
+            else
+                li There are no values

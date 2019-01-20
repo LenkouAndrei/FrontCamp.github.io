@@ -4,5 +4,7 @@ html
             include styles.css
         title= title
     body
-        h1(class="app-header")= message
-        a(class="all-news-link" href='/news') News
+        div(class="container")
+            h1(class="headline")= message
+            div(class="description")= description
+            a(class="link" href='/news') News

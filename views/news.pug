@@ -4,10 +4,9 @@ html
             include styles.css
         title= title
     body
-        a(class="back-link" href='/news') Back
+        div(class="container")
+            h1(class="headline")= header
 
-        h1(class="app-header")= header
+            div(class="date")= date
 
-        div(class="news-date")= date
-
-        p= text
+            p= text
