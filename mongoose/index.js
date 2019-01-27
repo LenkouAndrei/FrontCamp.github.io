@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const uri = 'string path to db';
+const uri = 'mongodb://localhost:3000/news';
 mongoose.connect(uri);
 
 const db = mongoose.connection;

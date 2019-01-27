@@ -1,0 +1,13 @@
+html
+    head
+        style
+            include styles.css
+        title= title
+    body
+    div(class="container")
+        h1(class="headline")= 'News'
+        div(class="news-list")
+            each id in urls
+                a(href='/news/'+ id)= news[id - 1]
+            else
+                li There are no values

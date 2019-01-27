@@ -2,16 +2,11 @@ const mongoose = require('./index');
 const Schema = mongoose.Schema;
 
 const newsSchema = new Schema({
-    id: String,
-    source: String,
-    author: String,
     title: String,
-    description: String,
-    url: String,
-    urlToImage: String,
-    publishedAt: Date,
+    text: String,
+    date: Date,
 });
 
-const NewsSchema = mongoose.model('Article', newsSchema);
+const News = mongoose.model('News', newsSchema);
 
-model.exports = NewsSchema;
+model.exports = News;
