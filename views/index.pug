@@ -1,10 +1,5 @@
-html
-  head
-    style
-      include styles.css
-    title= title
-  body
-    div(class="container")
-      h1(class="headline")= message
-      div(class="description")= description
-      a(class="link" href='/news') News
+extends layout
+
+block content
+  div(class="container")
+    a(class="link" href='/news') News

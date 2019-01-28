@@ -1,12 +1,27 @@
-html
-    head
-        style
-            include styles.css
-        title= title
-    body
-        div(class="container")
-            h1(class="headline")= header
+extends layout
 
-            div(class="date")= date
+block content
+    div(class="container")
+        h1(class="headline")= news[0].title
 
-            p= text
+        div(class="date")= news[0].date
+
+        p= news[0].text
+
+    form.media-right(method='post')
+        input(type='hidden', name='_method', value='delete')
+        button.delete Delete
+    hr
+    form(method='post')
+        input(type='hidden', name='_method', value='put')
+        .field
+            label.label Title
+            .control
+                input.input(type='text', placeholder='Title', name="title", value= news[0].title)
+        .field
+            label.label Text
+            .control
+                textarea.textarea(placeholder='Text', name="text")= news[0].text
+        .field
+            .control
+                button.button(type='submit') Edit
