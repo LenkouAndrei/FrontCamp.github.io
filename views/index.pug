@@ -3,3 +3,27 @@ extends layout
 block content
   div(class="container")
     a(class="link" href='/news') News
+  hr
+  form.box(method='post', action='/register')
+    div Register
+      ul
+        li
+          input.input(type='email', placeholder='Email', name="email")
+        li
+          input.input(type='password', placeholder='Password', name="password")
+        li
+          button Register
+  hr
+  form.box(method='post', action='/login')
+    div Login
+      ul
+        li
+          input.input(type='email', placeholder='Email', name="email")
+        li
+          input.input(type='password', placeholder='Password', name="password")
+        li
+          button Login
+  hr
+  form.box(method='get', action='/logout')
+    div Logout
+      button Logout

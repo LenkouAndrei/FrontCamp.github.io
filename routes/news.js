@@ -6,6 +6,11 @@ const handleError = helpers.handleError;
 
 const News = require('../models/news.model');
 
+const ensureLoggedIn = require('../passport/authentification');
+
+router.all('/', ensureLoggedIn);
+router.all('/*', ensureLoggedIn);
+
 router.get('/', function(req, res, next) {
   News.find({}, function(err, news) {
     res.render('allNews', { news });
