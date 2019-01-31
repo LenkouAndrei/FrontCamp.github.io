@@ -1,0 +1,26 @@
+extends layout
+
+block content
+    div(class="container")
+        h1(class="headline")= 'News'
+        div(class="news-list")
+            each singleNews in news
+                a(href='/news/'+ singleNews.id)= singleNews.title
+            else
+                li There are no values
+        form(method='post')
+            .field
+                label.label Source
+                .control
+                    input.input(type='text', placeholder='Title', name="title", value='First App')
+            .field
+                label.label Text
+                .control
+                    textarea.textarea(placeholder='Text', name="text") It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+            .field
+                label.label ID
+                .control
+                    input.input(type='text', placeholder='id', name="id", value='1')
+            .field
+                .control
+                    button.button(type='submit') Submit
