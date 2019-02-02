@@ -15,7 +15,17 @@
     <favorites_list name="FrontCamp.github.io" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fc-angular2/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -147,6 +157,24 @@
               <item name="FrontCamp.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="FrontCamp.github.io" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="FrontCamp.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FrontCamp.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="fc-angular2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FrontCamp.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FrontCamp.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="fc-angular2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FrontCamp.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FrontCamp.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="fc-angular2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -168,7 +196,7 @@
     <property name="SearchEverywhereHistoryKey" value="formRequest&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fc-angular2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -275,14 +303,7 @@
       <workItem from="1548870105534" duration="6361000" />
       <workItem from="1548878077730" duration="604000" />
       <workItem from="1548949021838" duration="2942000" />
-      <workItem from="1549093488562" duration="965000" />
-    </task>
-    <task id="LOCAL-00013" summary="refactor: add all to window.onload">
-      <created>1542738116160</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1542738116160</updated>
+      <workItem from="1549093488562" duration="1519000" />
     </task>
     <task id="LOCAL-00014" summary="feature: init branch">
       <created>1542740937166</created>
@@ -620,11 +641,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548876482794</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="git init">
+      <created>1549095173826</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1549095173827</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="315092000" />
+    <option name="totallyTimeSpent" value="315646000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -643,6 +671,7 @@
       <window_info id="Structure" order="1" sideWeight="0.50711745" side_tool="true" weight="0.19872814" />
       <window_info id="Favorites" order="2" sideWeight="0.5066313" side_tool="true" weight="0.19872814" />
       <window_info id="npm" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3285968" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -652,7 +681,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3291815" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.62811387" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49726775" visible="true" weight="0.26998225" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49726775" visible="true" weight="0.47069272" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5027322" side_tool="true" weight="0.53504276" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -753,7 +782,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="feature/ factory implemented" />
     <MESSAGE value="feature/ add singleton in catch block" />
     <MESSAGE value="feature/ add proxy to request" />
     <MESSAGE value="feature/ edit request functionality" />
@@ -778,10 +806,10 @@
     <MESSAGE value="feature/ add logger and views" />
     <MESSAGE value="feature/ implement database connection" />
     <MESSAGE value="feature/ add authentication" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature/ add authentication" />
+    <MESSAGE value="git init" />
+    <option name="LAST_COMMIT_MESSAGE" value="git init" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dist/index.html" />
     <entry file="file://$PROJECT_DIR$/src/requester/requester.js" />
     <entry file="file://$PROJECT_DIR$/src/view/view.js" />
     <entry file="file://$PROJECT_DIR$/src/containerElement/containerElement.js" />
@@ -987,6 +1015,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fc-angular2/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="8" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
         </state>
       </provider>
     </entry>

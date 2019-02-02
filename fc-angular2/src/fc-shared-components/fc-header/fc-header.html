@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="header-main-content">
+    <h1 class="header-headline logo">
+      <a class="logo-link" href="/" rel="home">
+        <img
+          class="logo-img"
+          width="100"
+          src="assets/daze.png"
+          alt="DAZE Inc.">
+      </a>
+    </h1>
+    <span class="header-text">{{ userLogin }}</span>
+    <button class="header-button">{{ buttonName }}</button>
+  </div>
+  <div class="header-additional-content">
+    <ng-content selector="source-name"></ng-content>
+    <ng-content selector="filter-panel"></ng-content>
+  </div>
+</header>
