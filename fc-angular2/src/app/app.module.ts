@@ -10,6 +10,7 @@ import {FcFooterComponent} from '../fc-shared-components/fc-footer/fc-footer';
 import {FcMainPageArticleComponent} from '../fc-main-page/fc-main-page-article/fc-main-page-article';
 import {FcArticlePageComponent} from '../fc-article-page/fc-article-page';
 import {FcEditPageComponent} from '../fc-edit-page/fc-edit-page';
+import {FcArticlesListComponent} from '../fc-main-page/fc-articles-list/fc-articles-list';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FcEditPageComponent} from '../fc-edit-page/fc-edit-page';
     FcFooterComponent,
     FcMainPageArticleComponent,
     FcArticlePageComponent,
-    FcEditPageComponent
+    FcEditPageComponent,
+    FcArticlesListComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@
     <figcaption  class="article-description">
       <h3 class="article-headline">{{article.headLine}}</h3>
       <p class="article-text">{{article.text}}</p>
-      <a class="article-link" href="{{article.linkAddress}}">Load more...</a>
+      <a class="article-link" [routerLink]="['/article', article.id]">Load more...</a>
     </figcaption>
   </figure>
   <div class="article-date date">
@@ -14,7 +14,7 @@
     <div class="date-time">{{article.time}}</div>
   </div>
   <div class="article-buttons buttons">
-    <button class="buttons-edit">Edit</button>
-    <button class="buttons-delete">Delete</button>
+    <a class="buttons-edit" [routerLink]="'/edit'">Edit</a>
+    <a class="buttons-delete">Delete</a>
   </div>
 </article>
