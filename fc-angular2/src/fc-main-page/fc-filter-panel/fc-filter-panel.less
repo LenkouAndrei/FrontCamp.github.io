@@ -1,5 +1,16 @@
+@import "../../fc-shared-styles/mixins.less";
+@import "../../fc-shared-styles/variables.less";
+
 .filters {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
+
+  &-button {
+    .button(@background-color: @orange);
+  }
+}
+
+.add-article {
+  .button(@background-color: @yellow-green);
 }
