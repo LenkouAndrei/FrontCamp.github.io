@@ -3,17 +3,23 @@
     [sourceName]="'Source Name'"
     source-name
   ></fc-source-name>
-  <fc-filter-panel filter-panel></fc-filter-panel>
+  <ng-container *ngIf="optionalHeaderContent">
+    <fc-filter-panel filter-panel></fc-filter-panel>
+  </ng-container>
 </fc-header>
 <!--<router-outlet></router-outlet>-->
 <main>
   <div class="wrapper">
-    <fc-main-page-article
-      *ngFor="let article of articlesList"
-      [article]="article"
-    ></fc-main-page-article>
+    <!--<fc-main-page-article-->
+      <!--*ngFor="let article of articlesList"-->
+      <!--[article]="article"-->
+    <!--&gt;</fc-main-page-article>-->
+    <!--<fc-article-page [article]="articlesList[0]"></fc-article-page>-->
+    <fc-edit-page></fc-edit-page>
   </div>
 </main>
 <fc-footer>
-  <button class="footer-button">{{loadMore}}</button>
+  <ng-template *ngIf="optionalFooterContent">
+    <button class="footer-button">{{loadMore}}</button>
+  </ng-template>
 </fc-footer>

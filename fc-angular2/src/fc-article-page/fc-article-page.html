@@ -1,18 +1,18 @@
 <article class="article">
   <figure class="article-info">
     <div class="article-wrapper">
-      <img  class="article-image" src="{{article.imagePath}}" alt="mock image" width="75">
+      <img  class="article-image" src="{{article.imagePath}}" alt="mock image" width="150">
     </div>
     <figcaption  class="article-description">
       <h3 class="article-headline">{{article.headLine}}</h3>
       <p class="article-text">{{article.text}}</p>
-      <a class="article-link" href="{{article.linkAddress}}">Load more...</a>
+      <div class="article-date date">
+        <div class="date-day">{{article.date}}</div>
+        <div class="date-time">{{article.time}}</div>
+      </div>
+      <div class="article-author">Author</div>
     </figcaption>
   </figure>
-  <div class="article-date date">
-    <div class="date-day">{{article.date}}</div>
-    <div class="date-time">{{article.time}}</div>
-  </div>
   <div class="article-buttons buttons">
     <button class="buttons-edit">Edit</button>
     <button class="buttons-delete">Delete</button>

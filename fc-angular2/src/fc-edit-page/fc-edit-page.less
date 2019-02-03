@@ -1,0 +1,41 @@
+@import "../fc-shared-styles/mixins.less";
+@import "../fc-shared-styles/variables.less";
+
+.form-edit {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ls-list,
+.rs-list {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  label {
+    display: block;
+  }
+
+  input {
+    width: 400px;
+  }
+
+  textarea {
+    resize: none;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+
+  &-save {
+    .button(@background-color: @yellow-green);
+  }
+  &-cancel {
+    .button();
+  }
+}

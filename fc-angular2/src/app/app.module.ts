@@ -8,6 +8,8 @@ import { FcFilterPanelComponent } from '../fc-main-page/fc-filter-panel/fc-filte
 import { FcSourceNameComponent } from '../fc-shared-components/fc-source-name/fc-source-name';
 import {FcFooterComponent} from '../fc-shared-components/fc-footer/fc-footer';
 import {FcMainPageArticleComponent} from '../fc-main-page/fc-main-page-article/fc-main-page-article';
+import {FcArticlePageComponent} from '../fc-article-page/fc-article-page';
+import {FcEditPageComponent} from '../fc-edit-page/fc-edit-page';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {FcMainPageArticleComponent} from '../fc-main-page/fc-main-page-article/f
     FcFilterPanelComponent,
     FcSourceNameComponent,
     FcFooterComponent,
-    FcMainPageArticleComponent
+    FcMainPageArticleComponent,
+    FcArticlePageComponent,
+    FcEditPageComponent
   ],
   imports: [
     BrowserModule,

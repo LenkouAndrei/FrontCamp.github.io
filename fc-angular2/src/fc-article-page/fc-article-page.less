@@ -1,0 +1,49 @@
+@import "../fc-shared-styles/mixins.less";
+
+.article {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+
+  &-wrapper {
+    height: 150px;
+  }
+
+  &-info {
+    display: flex;
+    margin: 0;
+  }
+
+  &-headline {
+    margin-top: 0;
+  }
+
+  &-date {
+    display: flex;
+  }
+
+  &-description {
+    margin: 0 20px;
+  }
+
+  &-author {
+    margin-top: 20px;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-flow: column;
+
+  &-edit {
+    .button(@background-color: @orange);
+  }
+  &-delete {
+    margin-top: 20px;
+    .button();
+  }
+}
+
+.date-day {
+  margin-right: 20px;
+}
