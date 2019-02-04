@@ -1,16 +1,10 @@
 <fc-header>
   <fc-source-name
     [sourceName]="'Source Name'"
-    source-name
   ></fc-source-name>
-  <ng-container *ngIf="optionalHeaderContent">
-    <fc-filter-panel filter-panel></fc-filter-panel>
-  </ng-container>
 </fc-header>
 <main>
-  <div class="wrapper">
-    <router-outlet></router-outlet>
-  </div>
+  <router-outlet></router-outlet>
 </main>
 <fc-footer>
   <ng-template *ngIf="optionalFooterContent">

@@ -7,10 +7,14 @@ import { FcHeaderComponent } from '../fc-shared-components/fc-header/fc-header';
 import { FcFilterPanelComponent } from '../fc-main-page/fc-filter-panel/fc-filter-panel';
 import { FcSourceNameComponent } from '../fc-shared-components/fc-source-name/fc-source-name';
 import {FcFooterComponent} from '../fc-shared-components/fc-footer/fc-footer';
-import {FcMainPageArticleComponent} from '../fc-main-page/fc-main-page-article/fc-main-page-article';
+import {FcArticleComponent} from '../fc-main-page/fc-article/fc-article';
 import {FcArticlePageComponent} from '../fc-article-page/fc-article-page';
 import {FcEditPageComponent} from '../fc-edit-page/fc-edit-page';
 import {FcArticlesListComponent} from '../fc-main-page/fc-articles-list/fc-articles-list';
+import {HttpService} from '../services/http.service';
+import { HttpClientModule } from '@angular/common/http';
+import {FcMainPageComponent} from '../fc-main-page/fc-main-page';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,14 +23,17 @@ import {FcArticlesListComponent} from '../fc-main-page/fc-articles-list/fc-artic
     FcFilterPanelComponent,
     FcSourceNameComponent,
     FcFooterComponent,
-    FcMainPageArticleComponent,
+    FcArticleComponent,
     FcArticlePageComponent,
     FcEditPageComponent,
-    FcArticlesListComponent
+    FcArticlesListComponent,
+    FcMainPageComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

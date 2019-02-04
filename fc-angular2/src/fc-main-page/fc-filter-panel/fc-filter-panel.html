@@ -1,9 +1,13 @@
 <div class="filters">
-  <select class="filters-select" name="filter-select" id="source-selector">
-    <option>Пункт 1</option>
-    <option>Пункт 2</option>
-    <option>Пункт 3</option>
-    <option>Пункт 4</option>
+  <select class="filters-select" id="source-selector" name="source"
+          [ngModel]="source"
+          (ngModelChange)="sourceChanged($event)"
+  >
+    <option [ngValue]="null">Select Channel</option>
+    <option
+      *ngFor="let source of (sourceList$ | async)"
+      [ngValue]="source"
+    >{{source.name}}</option>
   </select>
   <form class="filters-text" action="/">
     <input type="text" placeholder="Type your text...">

@@ -1,5 +1,4 @@
-import {Component} from '@angular/core';
-import {LIST} from './article-list.model';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'fc-articles-list',
@@ -7,5 +6,6 @@ import {LIST} from './article-list.model';
   styleUrls: ['./fc-articles-list.less'],
 })
 export class FcArticlesListComponent {
-  public list = LIST;
+  @Input()
+  public articles;
 }
