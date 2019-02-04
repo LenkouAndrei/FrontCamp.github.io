@@ -7,6 +7,7 @@ import {HttpService, INewsAPISource} from '../../services/http.service';
   styleUrls: ['./fc-filter-panel.less'],
 })
 export class FcFilterPanelComponent {
+
   @Output()
   public valueChange: EventEmitter<string> = new EventEmitter();
   public source = null;

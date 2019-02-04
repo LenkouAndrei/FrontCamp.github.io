@@ -23,6 +23,7 @@ export interface INewsAPIArticle {
   url: string;
   urlToImage: string;
 }
+
 export interface INewsAPISource {
   category: string;
   country: string;

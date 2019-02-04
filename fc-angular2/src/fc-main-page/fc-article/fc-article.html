@@ -1,17 +1,17 @@
 <article class="article">
   <figure class="article-info">
     <div class="article-wrapper">
-      <img  class="article-image" src="{{article.imagePath}}" alt="mock image" width="75">
+      <img  class="article-image" src="{{article.urlToImage}}" alt="mock image" width="75">
     </div>
     <figcaption  class="article-description">
-      <h3 class="article-headline">{{article.headLine}}</h3>
-      <p class="article-text">{{article.text}}</p>
+      <h3 class="article-headline">{{article.title}}</h3>
+      <p class="article-text">{{article.description}}</p>
       <a class="article-link" [routerLink]="['/article', article.id]">Load more...</a>
     </figcaption>
   </figure>
   <div class="article-date date">
-    <div class="date-day">{{article.date}}</div>
-    <div class="date-time">{{article.time}}</div>
+    <div class="date-day">{{getDate(article.publishedAt)}}</div>
+    <div class="date-time">{{getTime(article.publishedAt)}}</div>
   </div>
   <div class="article-buttons buttons">
     <a class="buttons-edit" [routerLink]="'/edit'">Edit</a>
