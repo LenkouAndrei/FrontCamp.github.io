@@ -9,13 +9,23 @@ import {HttpService, INewsAPISource} from '../../services/http.service';
 export class FcFilterPanelComponent {
 
   @Output()
-  public valueChange: EventEmitter<string> = new EventEmitter();
+  public onMyArticlesVisibilityStateChange: EventEmitter<boolean> = new EventEmitter();
+  @Output()
+  public onNewsSourceChange: EventEmitter<string> = new EventEmitter();
+
   public source = null;
-  public sourceList$ = this.httpService.getSourceList();
+  // public sourceList$ = this.httpService.getSourceList();
+  public isOnlyMyVisible = false;
 
   constructor(private httpService: HttpService) {}
 
   public sourceChanged(currentSource: INewsAPISource): void {
-    this.valueChange.emit(currentSource.id);
+    this.onNewsSourceChange.emit(currentSource.id);
+    console.log(this.httpService);
+  }
+
+  public toggleCreatedByMe(): void {
+    this.isOnlyMyVisible = !this.isOnlyMyVisible;
+    this.onMyArticlesVisibilityStateChange.emit(this.isOnlyMyVisible);
   }
 }

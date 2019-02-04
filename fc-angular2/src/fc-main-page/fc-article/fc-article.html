@@ -13,7 +13,7 @@
     <div class="date-day">{{getDate(article.publishedAt)}}</div>
     <div class="date-time">{{getTime(article.publishedAt)}}</div>
   </div>
-  <div class="article-buttons buttons">
+  <div class="article-buttons buttons" *ngIf="article.isCreatedByMe">
     <a class="buttons-edit" [routerLink]="'/edit'">Edit</a>
     <a class="buttons-delete">Delete</a>
   </div>

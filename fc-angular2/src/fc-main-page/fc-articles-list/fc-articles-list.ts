@@ -7,5 +7,8 @@ import {Component, Input} from '@angular/core';
 })
 export class FcArticlesListComponent {
   @Input()
+  public isOnlyMyArticlesVisible;
+
+  @Input()
   public articles;
 }

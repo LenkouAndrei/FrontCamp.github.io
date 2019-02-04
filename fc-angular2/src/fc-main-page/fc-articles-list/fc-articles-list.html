@@ -1,4 +1,5 @@
 <fc-article
 *ngFor="let article of articles"
 [article]="article"
+[style.display]="(isOnlyMyArticlesVisible && !article.isCreatedByMe) ? 'none' : 'block'"
 ></fc-article>

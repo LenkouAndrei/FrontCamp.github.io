@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {dateToArray} from '../../utils/utils';
 
 @Component({
   selector: 'fc-article',
@@ -10,17 +11,12 @@ export class FcArticleComponent {
   public article;
 
   public getDate(fullDateAsString: string): string {
-    const [date, time] = this.dateToArray(fullDateAsString);
+    const [date, time] = dateToArray(fullDateAsString);
     return date;
   }
 
   public getTime(fullDateAsString: string): string {
-    const [date, time] = this.dateToArray(fullDateAsString);
+    const [date, time] = dateToArray(fullDateAsString);
     return time;
-  }
-
-  private dateToArray(fullDateAsString: string): string[] {
-    const truncatedDate = fullDateAsString.slice(0, -1);
-    return truncatedDate.split('T');
   }
 }

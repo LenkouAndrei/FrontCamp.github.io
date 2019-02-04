@@ -1,8 +1,10 @@
 <fc-filter-panel
-  (valueChange)="loadNews($event)"
+  (onNewsSourceChange)="loadNews($event)"
+  (onMyArticlesVisibilityStateChange)="toggleMyArticlesVisibility($event)"
 ></fc-filter-panel>
 <div class="wrapper">
   <fc-articles-list
+    [isOnlyMyArticlesVisible]="isOnlyMyArticles"
     [articles]="articlesList"
   ></fc-articles-list>
 </div>

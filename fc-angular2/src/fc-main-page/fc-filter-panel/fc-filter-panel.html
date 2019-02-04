@@ -15,7 +15,11 @@
   </form>
   <div class="filters-checkbox">
     <label>
-      <input type="checkbox" [checked]=false>Only created by me
+      <input
+        type="checkbox"
+        [checked]="isOnlyMyVisible"
+        (change)="toggleCreatedByMe()"
+      >Only created by me
     </label>
   </div>
   <button class="add-article">Add Article</button>

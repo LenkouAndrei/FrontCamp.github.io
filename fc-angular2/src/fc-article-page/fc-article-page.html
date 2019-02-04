@@ -1,20 +1,22 @@
-<article class="article">
-  <figure class="article-info">
-    <div class="article-wrapper">
-      <img  class="article-image" src="{{article.imagePath}}" alt="mock image" width="150">
-    </div>
-    <figcaption  class="article-description">
-      <h3 class="article-headline">{{article.headLine}}</h3>
-      <p class="article-text">{{article.text}}</p>
-      <div class="article-date date">
-        <div class="date-day">{{article.date}}</div>
-        <div class="date-time">{{article.time}}</div>
+<div class="wrapper">
+  <article class="article">
+    <figure class="article-info">
+      <div class="article-wrapper">
+        <img  class="article-image" src="{{article.urlToImage}}" alt="mock image" width="150">
       </div>
-      <div class="article-author">Author</div>
-    </figcaption>
-  </figure>
-  <div class="article-buttons buttons">
-    <a class="buttons-edit" [routerLink]="'/edit'">Edit</a>
-    <a class="buttons-delete">Delete</a>
-  </div>
-</article>
+      <figcaption  class="article-description">
+        <h3 class="article-headline">{{article.title}}</h3>
+        <p class="article-text">{{article.description}}</p>
+        <div class="article-date date">
+          <div class="date-day">{{getDate(article.publishedAt)}}</div>
+          <div class="date-time">{{getTime(article.publishedAt)}}</div>
+        </div>
+        <div class="article-author">{{article.author}}</div>
+      </figcaption>
+    </figure>
+    <div class="article-buttons buttons">
+      <a class="buttons-edit" [routerLink]="'/edit'">Edit</a>
+      <a class="buttons-delete">Delete</a>
+    </div>
+  </article>
+</div>
