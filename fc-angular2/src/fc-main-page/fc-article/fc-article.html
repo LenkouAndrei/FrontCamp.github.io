@@ -15,6 +15,6 @@
   </div>
   <div class="article-buttons buttons" *ngIf="article.isCreatedByMe">
     <a class="buttons-edit" [routerLink]="'/edit'">Edit</a>
-    <a class="buttons-delete">Delete</a>
+    <a class="buttons-delete" (click)="deleteItem()">Delete</a>
   </div>
 </article>

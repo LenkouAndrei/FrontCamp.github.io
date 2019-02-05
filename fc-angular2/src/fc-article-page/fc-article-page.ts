@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ARTICLE_LIST} from '../fc-main-page/fc-articles-list/article-list.model';
 import {dateToArray} from '../utils/utils';
 
@@ -10,9 +10,13 @@ import {dateToArray} from '../utils/utils';
 })
 export class FcArticlePageComponent implements OnInit {
   public article;
-  constructor(private route: ActivatedRoute) {}
+
+  constructor(
+    private activateRoute: ActivatedRoute,
+    private router: Router,
+  ) {}
   public ngOnInit(): void {
-    this.route.paramMap
+    this.activateRoute.paramMap
       .subscribe(params => {
         this.article = ARTICLE_LIST[+params.get('id')];
       });
@@ -26,5 +30,10 @@ export class FcArticlePageComponent implements OnInit {
   public getTime(fullDateAsString: string): string {
     const [date, time] = dateToArray(fullDateAsString);
     return time;
+  }
+
+  public deleteAndLeave(): void {
+    console.log('Deleted!!!');
+    this.router.navigate(['/articles']);
   }
 }

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'fc-edit-page',
@@ -7,4 +8,10 @@ import {Component} from '@angular/core';
 })
 export class FcEditPageComponent {
 
+  constructor(private router: Router){}
+
+  public saveAndLeavePage(): void {
+    console.log('Saved!!!');
+    this.router.navigate(['/articles']);
+  }
 }

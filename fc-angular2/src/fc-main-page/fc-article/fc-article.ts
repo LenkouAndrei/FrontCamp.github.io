@@ -19,4 +19,8 @@ export class FcArticleComponent {
     const [date, time] = dateToArray(fullDateAsString);
     return time;
   }
+
+  public deleteItem(): void {
+    console.log('Deleted!!!');
+  }
 }
