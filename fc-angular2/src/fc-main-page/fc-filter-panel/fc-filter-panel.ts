@@ -12,10 +12,13 @@ export class FcFilterPanelComponent {
   public onMyArticlesVisibilityStateChange: EventEmitter<boolean> = new EventEmitter();
   @Output()
   public onNewsSourceChange: EventEmitter<string> = new EventEmitter();
+  @Output()
+  public onFindByWords: EventEmitter<string> = new EventEmitter();
 
   public source = null;
   // public sourceList$ = this.httpService.getSourceList();
   public isOnlyMyVisible = false;
+  public wordsToFind = '';
 
   constructor(private httpService: HttpService) {}
 
@@ -27,5 +30,9 @@ export class FcFilterPanelComponent {
   public toggleCreatedByMe(): void {
     this.isOnlyMyVisible = !this.isOnlyMyVisible;
     this.onMyArticlesVisibilityStateChange.emit(this.isOnlyMyVisible);
+  }
+
+  public filterByWords(wordsToFind: string): void {
+    this.onFindByWords.emit(wordsToFind.trim());
   }
 }

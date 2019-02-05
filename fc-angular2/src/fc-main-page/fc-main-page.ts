@@ -19,6 +19,7 @@ export class FcMainPageComponent implements OnInit {
   private defaultNewsChanel = 'bbc-news';
   public articlesList;
   public isOnlyMyArticles;
+  public articlesCopy;
 
   constructor(private httpService: HttpService) {}
 
@@ -37,6 +38,7 @@ export class FcMainPageComponent implements OnInit {
     //   .pipe(take(1))
     //   .subscribe(newsList => {
         this.setArticleList(ARTICLE_LIST);
+        this.articlesCopy = this.articlesList;
         // this.setArticleList(newsList);
       //   console.log(this.articlesList);
       // });
@@ -66,5 +68,27 @@ export class FcMainPageComponent implements OnInit {
 
   public toggleMyArticlesVisibility(isMyArticlesVisible: boolean): void {
     this.isOnlyMyArticles = isMyArticlesVisible;
+  }
+
+  public filterByWords(words: string): void {
+    if (words === '') {
+      this.articlesList = this.articlesCopy;
+      ARTICLE_LIST.length = 0;
+      this.articlesList.forEach(article => ARTICLE_LIST.push(article));
+    } else {
+      this.articlesList = ARTICLE_LIST.filter(article => {
+        return this.isWordInArticleTitle(article, words) || this.isWordInArticleDescription(article, words);
+      });
+      ARTICLE_LIST.length = 0;
+      this.articlesList.forEach(article => ARTICLE_LIST.push(article));
+    }
+  }
+
+  private isWordInArticleTitle(article: INewsAPIArticle, words: string): boolean {
+    return article.title.toUpperCase().indexOf(words.toUpperCase()) !== -1;
+  }
+
+  private isWordInArticleDescription(article: INewsAPIArticle, words: string): boolean {
+    return article.description.toUpperCase().indexOf(words.toUpperCase()) !== -1;
   }
 }

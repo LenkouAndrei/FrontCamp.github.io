@@ -1,6 +1,7 @@
 <fc-filter-panel
   (onNewsSourceChange)="loadNews($event)"
   (onMyArticlesVisibilityStateChange)="toggleMyArticlesVisibility($event)"
+  (onFindByWords)="filterByWords($event)"
 ></fc-filter-panel>
 <div class="wrapper">
   <fc-articles-list

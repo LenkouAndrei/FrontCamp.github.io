@@ -10,8 +10,8 @@
     >{{source.name}}</option>
   </select>
   <form class="filters-text" action="/">
-    <input type="text" placeholder="Type your text...">
-    <button class="filters-button">Filter</button>
+    <input type="text" placeholder="Type your text..." #wordsFilter [value]="wordsToFind">
+    <button class="filters-button" (click)="filterByWords(wordsFilter.value)">Filter</button>
   </form>
   <div class="filters-checkbox">
     <label>
