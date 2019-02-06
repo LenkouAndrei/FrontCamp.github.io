@@ -1,6 +1,17 @@
 @import "../fc-shared-styles/variables.less";
+@import "../fc-shared-styles/mixins.less";
 
 .wrapper {
   width: @wrapper-width;
   margin: 0 auto;
+}
+
+.footer-button {
+  width: @wrapper-width;
+  margin: 0 auto 10px;
+}
+
+.footer-button {
+  .button(@background-color: @yellow-green, @font-size: 18px, @padding-height: 15px);
+  .side-padding-zero();
 }

@@ -16,7 +16,7 @@ export class FcFilterPanelComponent {
   public onFindByWords: EventEmitter<string> = new EventEmitter();
 
   public source = null;
-  // public sourceList$ = this.httpService.getSourceList();
+  public sourceList$ = this.httpService.getSourceList();
   public isOnlyMyVisible = false;
   public wordsToFind = '';
 

@@ -6,6 +6,7 @@ export const ARTICLE_LIST = [
     title: 'Best title',
     url: 'https://www.lipsum.com/',
     urlToImage: 'assets/mock-image.jpg',
+    isCreatedByMe: true,
   },
   {
     author: 'Monika',
@@ -14,6 +15,7 @@ export const ARTICLE_LIST = [
     title: 'Crew',
     url: 'https://www.lipsum.com/',
     urlToImage: 'assets/mock-image.jpg',
+    isCreatedByMe: true,
   },
   {
     author: 'Andy',
@@ -22,6 +24,7 @@ export const ARTICLE_LIST = [
     title: 'School Young',
     url: 'https://www.lipsum.com/',
     urlToImage: 'assets/mock-image.jpg',
+    isCreatedByMe: true,
   },
   {
     author: 'John Doe',
@@ -30,5 +33,6 @@ export const ARTICLE_LIST = [
     title: 'Future',
     url: 'https://www.lipsum.com/',
     urlToImage: 'assets/mock-image.jpg',
+    isCreatedByMe: true,
   },
 ];

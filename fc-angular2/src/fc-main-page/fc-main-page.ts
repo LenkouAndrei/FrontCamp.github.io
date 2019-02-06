@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpService, INewsAPIArticle} from '../services/http.service';
 import {ARTICLE_LIST} from './fc-articles-list/article-list.model';
+import {take, takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
 
 interface INewsAPIArticleWithId extends INewsAPIArticle {
   id: number;
@@ -15,55 +17,59 @@ interface ICommonArticle extends INewsAPIArticleWithId {
   templateUrl: './fc-main-page.html',
   styleUrls: ['./fc-main-page.less'],
 })
-export class FcMainPageComponent implements OnInit {
+export class FcMainPageComponent implements OnInit, OnDestroy {
+  private unsubscribe: Subject<void> = new Subject();
+
+  private currentLoadedArticlesAmount = 0;
+  private loadedArticlesAmountAtTime = 10;
   private defaultNewsChanel = 'bbc-news';
+  private currentNewsChannel = 'bbc-news';
+  private lastId: number;
   public articlesList;
   public isOnlyMyArticles;
   public articlesCopy;
+  public readonly loadMore = 'Load More';
 
   constructor(private httpService: HttpService) {}
 
   public loadNews(sourceId: string): void {
-    // this.httpService.getArticlesBySourceId(sourceId)
-    //   .subscribe(newsList => {
-    //     this.setArticleList(newsList);
-    //   });
-    console.log(sourceId);
-    console.log(this.httpService);
-    console.log(this.defaultNewsChanel);
+    this.lastId = 0;
+    this.currentNewsChannel = sourceId;
+    this.currentLoadedArticlesAmount = this.loadedArticlesAmountAtTime;
+    this.httpService.getArticlesBySourceId(this.currentNewsChannel, this.currentLoadedArticlesAmount)
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe(newsList => {
+        this.setArticleList(newsList);
+        this.articlesCopy = this.articlesList;
+      });
   }
 
   public ngOnInit(): void {
-    // this.httpService.getArticlesBySourceId(this.defaultNewsChanel)
-    //   .pipe(take(1))
-    //   .subscribe(newsList => {
-        this.setArticleList(ARTICLE_LIST);
+    this.currentLoadedArticlesAmount = this.loadedArticlesAmountAtTime;
+    this.httpService.getArticlesBySourceId(this.defaultNewsChanel, this.currentLoadedArticlesAmount )
+      .pipe(take(1))
+      .subscribe(newsList => {
+        this.setArticleList(newsList);
         this.articlesCopy = this.articlesList;
-        // this.setArticleList(newsList);
-      //   console.log(this.articlesList);
-      // });
+      });
   }
 
   private setArticleList(articles: INewsAPIArticle[]): void {
+    const articleList = this.expandArticlesWithId(ARTICLE_LIST);
     const articlesWithId = this.expandArticlesWithId(articles);
-    const commonArticles = this.expandArticlesWithCreatedByMe(articlesWithId);
-    // ARTICLE_LIST.length = 0;
-    // commonArticles.forEach(article => ARTICLE_LIST.push(article));
-    this.articlesList = commonArticles;
+    const articleListAPI = this.expandArticlesWithCreatedByMe(articlesWithId);
+    this.articlesList = [...articleList, ...articleListAPI];
   }
 
   private expandArticlesWithId(articles: INewsAPIArticle[]): INewsAPIArticleWithId[] {
-    return articles.map((article, index) => ({...article, id: index}));
+    return articles.map((article, index) => {
+      this.lastId += index;
+      return {...article, id: this.lastId};
+    });
   }
 
   private expandArticlesWithCreatedByMe(articles: INewsAPIArticleWithId[]): ICommonArticle[] {
-    return articles.map((article, index) => {
-      if (index === 2) {
-        return {...article, isCreatedByMe: true};
-      } else {
-        return {...article, isCreatedByMe: false};
-      }
-    });
+    return articles.map(article => ({...article, isCreatedByMe: false}));
   }
 
   public toggleMyArticlesVisibility(isMyArticlesVisible: boolean): void {
@@ -73,15 +79,21 @@ export class FcMainPageComponent implements OnInit {
   public filterByWords(words: string): void {
     if (words === '') {
       this.articlesList = this.articlesCopy;
-      ARTICLE_LIST.length = 0;
-      this.articlesList.forEach(article => ARTICLE_LIST.push(article));
     } else {
-      this.articlesList = ARTICLE_LIST.filter(article => {
+      this.articlesList = this.articlesList.filter(article => {
         return this.isWordInArticleTitle(article, words) || this.isWordInArticleDescription(article, words);
       });
-      ARTICLE_LIST.length = 0;
-      this.articlesList.forEach(article => ARTICLE_LIST.push(article));
     }
+  }
+
+  public loadMoreArticles() {
+    this.currentLoadedArticlesAmount += this.loadedArticlesAmountAtTime;
+    this.httpService.getArticlesBySourceId(this.currentNewsChannel, this.currentLoadedArticlesAmount)
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe(newsList => {
+        this.setArticleList(newsList);
+        this.articlesCopy = this.articlesList;
+      });
   }
 
   private isWordInArticleTitle(article: INewsAPIArticle, words: string): boolean {
@@ -90,5 +102,11 @@ export class FcMainPageComponent implements OnInit {
 
   private isWordInArticleDescription(article: INewsAPIArticle, words: string): boolean {
     return article.description.toUpperCase().indexOf(words.toUpperCase()) !== -1;
+  }
+
+  public ngOnDestroy() {
+    console.log('ngOnDestory');
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
   }
 }

@@ -1,13 +1,5 @@
-<fc-header>
-  <fc-source-name
-    [sourceName]="'Source Name'"
-  ></fc-source-name>
-</fc-header>
+<fc-header></fc-header>
 <main>
   <router-outlet></router-outlet>
 </main>
-<fc-footer>
-  <ng-template *ngIf="optionalFooterContent">
-    <button class="footer-button">{{loadMore}}</button>
-  </ng-template>
-</fc-footer>
+<fc-footer></fc-footer>

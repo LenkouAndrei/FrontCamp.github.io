@@ -45,8 +45,8 @@ export class HttpService {
     private http: HttpClient,
   ) {}
 
-  private getSourceUrl(sourceName: string): string {
-    return`https://newsapi.org/v1/articles?source=${sourceName}&apiKey=b7898b8ae1f042849321a38b58c68df0`;
+  private getSourceUrl(sourceName: string, pageSize: number): string {
+    return`https://newsapi.org/v1/articles?source=${sourceName}&totalResults=${pageSize}&apiKey=b7898b8ae1f042849321a38b58c68df0`;
   }
 
   public getSourceList(): Observable<INewsAPISource[]> {
@@ -59,8 +59,8 @@ export class HttpService {
       );
   }
 
-  public getArticlesBySourceId(sourceId: string): Observable<INewsAPIArticle[]> {
-    const sourceUrl = this.getSourceUrl(sourceId);
+  public getArticlesBySourceId(sourceId: string, pageSize: number): Observable<INewsAPIArticle[]> {
+    const sourceUrl = this.getSourceUrl(sourceId, pageSize);
     return this.http.get<INewsAPIArticlesResponse>(sourceUrl)
       .pipe(
         catchError(this.handleError('getArticles', [])),

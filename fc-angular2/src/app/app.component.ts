@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public optionalHeaderContent = false;
   public optionalFooterContent = false;
-  public readonly loadMore = 'Load More';
 }
