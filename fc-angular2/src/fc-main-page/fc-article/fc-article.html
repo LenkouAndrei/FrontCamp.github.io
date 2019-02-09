@@ -6,7 +6,10 @@
     <figcaption  class="article-description">
       <h3 class="article-headline">{{article.title}}</h3>
       <p class="article-text">{{article.description}}</p>
-      <a class="article-link" [routerLink]="['/article', article.id]">Load more...</a>
+      <a class="article-link" *ngIf="article.isCreatedByMe; else linkToSrc" [routerLink]="['/article', article.id]">Load more...</a>
+      <ng-template #linkToSrc>
+        <a class="article-link" href="{{article.url}}" target="_blank">Load more...</a>
+      </ng-template>
     </figcaption>
   </figure>
   <div class="article-date date">

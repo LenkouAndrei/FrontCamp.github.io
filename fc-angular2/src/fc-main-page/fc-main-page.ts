@@ -1,17 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {HttpService, INewsAPIArticle} from '../services/http.service';
-import {ARTICLE_LIST} from './fc-articles-list/article-list.model';
 import {take, takeUntil} from 'rxjs/operators';
-import {Subject} from 'rxjs';
+import {Subject, combineLatest} from 'rxjs';
 import {HttpDatabaseService} from '../services/http.database.service';
-
-interface INewsAPIArticleWithId extends INewsAPIArticle {
-  id: number;
-}
-
-interface ICommonArticle extends INewsAPIArticleWithId {
-  isCreatedByMe: boolean;
-}
 
 @Component({
   selector: 'fc-main-page',
@@ -25,7 +16,6 @@ export class FcMainPageComponent implements OnInit, OnDestroy {
   private loadedArticlesAmountAtTime = 10;
   private defaultNewsChanel = 'bbc-news';
   private currentNewsChannel = 'bbc-news';
-  private lastId: number;
   public articlesList;
   public isOnlyMyArticles;
   public articlesCopy;
@@ -37,45 +27,27 @@ export class FcMainPageComponent implements OnInit, OnDestroy {
   ) {}
 
   public loadNews(sourceId: string): void {
-    this.lastId = 0;
     this.currentNewsChannel = sourceId;
     this.currentLoadedArticlesAmount = this.loadedArticlesAmountAtTime;
+    this.articlesList = this.articlesList.filter(article => article.isCreatedByMe);
     this.httpService.getArticlesBySourceId(this.currentNewsChannel, this.currentLoadedArticlesAmount)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(newsList => {
-        this.setArticleList(newsList);
+        this.articlesList = [ ...this.articlesList, ...newsList];
         this.articlesCopy = this.articlesList;
       });
   }
 
   public ngOnInit(): void {
     this.currentLoadedArticlesAmount = this.loadedArticlesAmountAtTime;
-    this.httpService.getArticlesBySourceId(this.defaultNewsChanel, this.currentLoadedArticlesAmount )
-      .pipe(take(1))
-      .subscribe(newsList => {
-        this.setArticleList(newsList);
-        this.articlesCopy = this.articlesList;
-      });
-    this.httpDatabaseService.getAllArticles()
-      .subscribe(res => console.log(res));
-  }
-
-  private setArticleList(articles: INewsAPIArticle[]): void {
-    const articleList = this.expandArticlesWithId(ARTICLE_LIST);
-    const articlesWithId = this.expandArticlesWithId(articles);
-    const articleListAPI = this.expandArticlesWithCreatedByMe(articlesWithId);
-    this.articlesList = [...articleList, ...articleListAPI];
-  }
-
-  private expandArticlesWithId(articles: INewsAPIArticle[]): INewsAPIArticleWithId[] {
-    return articles.map((article, index) => {
-      this.lastId += index;
-      return {...article, id: this.lastId};
+    combineLatest(
+      this.httpService.getArticlesBySourceId(this.defaultNewsChanel, this.currentLoadedArticlesAmount ),
+      this.httpDatabaseService.getAllArticles()
+    ).pipe(take(1))
+      .subscribe(([articlesAPI, articlesDatabase]) => {
+      this.articlesList = [ ...articlesDatabase, ...articlesAPI];
+      this.articlesCopy = this.articlesList;
     });
-  }
-
-  private expandArticlesWithCreatedByMe(articles: INewsAPIArticleWithId[]): ICommonArticle[] {
-    return articles.map(article => ({...article, isCreatedByMe: false}));
   }
 
   public toggleMyArticlesVisibility(isMyArticlesVisible: boolean): void {
@@ -97,7 +69,7 @@ export class FcMainPageComponent implements OnInit, OnDestroy {
     this.httpService.getArticlesBySourceId(this.currentNewsChannel, this.currentLoadedArticlesAmount)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(newsList => {
-        this.setArticleList(newsList);
+        this.articlesList = [ ...this.articlesList, ...newsList];
         this.articlesCopy = this.articlesList;
       });
   }

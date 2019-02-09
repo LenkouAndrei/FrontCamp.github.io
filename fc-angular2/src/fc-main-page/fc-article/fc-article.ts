@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {dateToArray} from '../../utils/utils';
 
 @Component({
@@ -6,9 +6,13 @@ import {dateToArray} from '../../utils/utils';
   templateUrl: './fc-article.html',
   styleUrls: ['./fc-article.less'],
 })
-export class FcArticleComponent {
+export class FcArticleComponent implements OnInit {
   @Input()
   public article;
+
+  public ngOnInit(): void {
+    console.log('ARTICLE ', this.article);
+  }
 
   public getDate(fullDateAsString: string): string {
     const [date, time] = dateToArray(fullDateAsString);

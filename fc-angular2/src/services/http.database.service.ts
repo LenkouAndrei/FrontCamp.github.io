@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
+import {flatMap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,10 @@ export class HttpDatabaseService {
 
   public getArticle(id: string): Observable<any> {
     const options = { params: new HttpParams().set('id', id) };
-    return this.http.get('http://localhost:8080/:id', options);
+    return this.http.get('http://localhost:8080/', options)
+      .pipe(flatMap(
+        responseAsArray => of((responseAsArray[0]))
+      ));
   }
 
   public deleteArticle(id: string): Observable<any> {
