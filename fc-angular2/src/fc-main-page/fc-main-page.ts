@@ -3,6 +3,7 @@ import {HttpService, INewsAPIArticle} from '../services/http.service';
 import {ARTICLE_LIST} from './fc-articles-list/article-list.model';
 import {take, takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {HttpDatabaseService} from '../services/http.database.service';
 
 interface INewsAPIArticleWithId extends INewsAPIArticle {
   id: number;
@@ -30,7 +31,10 @@ export class FcMainPageComponent implements OnInit, OnDestroy {
   public articlesCopy;
   public readonly loadMore = 'Load More';
 
-  constructor(private httpService: HttpService) {}
+  constructor(
+    private httpService: HttpService,
+    private httpDatabaseService: HttpDatabaseService,
+  ) {}
 
   public loadNews(sourceId: string): void {
     this.lastId = 0;
@@ -52,6 +56,8 @@ export class FcMainPageComponent implements OnInit, OnDestroy {
         this.setArticleList(newsList);
         this.articlesCopy = this.articlesList;
       });
+    this.httpDatabaseService.getAllArticles()
+      .subscribe(res => console.log(res));
   }
 
   private setArticleList(articles: INewsAPIArticle[]): void {
