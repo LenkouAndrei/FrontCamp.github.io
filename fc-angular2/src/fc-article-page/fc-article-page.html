@@ -18,7 +18,7 @@
       </figcaption>
     </figure>
     <div class="article-buttons buttons">
-      <a class="buttons-edit" [routerLink]="'/edit'">Edit</a>
+      <a class="buttons-edit" [routerLink]="'/edit'" [queryParams]="{ pageName: 'Edit Article', id: article.id }">Edit</a>
       <a class="buttons-delete" (click)="deleteAndLeave()">Delete</a>
     </div>
   </article>

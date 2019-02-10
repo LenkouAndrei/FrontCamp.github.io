@@ -17,7 +17,7 @@
     <div class="date-time">{{getTime(article.publishedAt)}}</div>
   </div>
   <div class="article-buttons buttons" *ngIf="article.isCreatedByMe">
-    <a class="buttons-edit" [routerLink]="'/edit'" [queryParams]="{ pageName: 'Edit Article' }">Edit</a>
+    <a class="buttons-edit" [routerLink]="'/edit'" [queryParams]="{ pageName: 'Edit Article', id: article.id }">Edit</a>
     <a class="buttons-delete" (click)="deleteItem()">Delete</a>
   </div>
 </article>

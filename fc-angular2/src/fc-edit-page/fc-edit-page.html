@@ -2,41 +2,52 @@
   [sourceName]="pageName"
 ></fc-source-name>
 <div class="wrapper">
-  <form action="/" class="form-edit">
+  <form
+    action="/"
+    class="form-edit"
+    [formGroup]="editCreateForm"
+    (ngSubmit)="onSubmit()"
+  >
     <ul class="ls-list">
       <li>
-        <label for="headline">Heading</label>
-        <input type="text" id="headline">
+        <label class="required" for="headline">Heading</label>
+        <input type="text" id="headline" formControlName="title">
       </li>
-      <li>
-        <label for="description">Short description</label>
-        <input type="text" id="description">
-      </li>
-      <li>
-        <label for="content">Content</label>
-        <textarea id="content" cols="53" rows="6"></textarea>
-      </li>
+      <fieldset formGroupName="description">
+        <li>
+          <label for="describe">Short description</label>
+          <input type="text" id="describe" formControlName="short">
+        </li>
+        <li>
+          <label class="required" for="content">Content</label>
+          <textarea id="content" cols="53" rows="6" formControlName="full"></textarea>
+        </li>
+      </fieldset>
     </ul>
     <ul class="rs-list">
       <li>
         <label for="image">Image</label>
-        <input type="text" id="image">
+        <input type="text" id="image" formControlName="imageSrc">
       </li>
       <li>
         <label for="date">Date</label>
-        <input type="text" id="date">
+        <input type="text" id="date" formControlName="publishedAt">
       </li>
       <li>
         <label for="author">Author</label>
-        <input type="text" id="author">
+        <input type="text" id="author" formControlName="creater">
       </li>
       <li>
         <label for="source">Source</label>
-        <input type="text" id="source">
+        <input type="text" id="source" formControlName="url">
       </li>
       <li class="buttons">
-        <a class="buttons-save" (click)="saveAndLeavePage()">Save</a>
-        <a class="buttons-cancel" [routerLink] = "'/articles'">Cancel</a>
+        <button
+          class="buttons-save"
+          (click)="saveAndLeavePage()"
+          [disabled]="!editCreateForm.valid"
+        >Save</button>
+        <button class="buttons-cancel" [routerLink] = "'/articles'">Cancel</button>
       </li>
     </ul>
   </form>

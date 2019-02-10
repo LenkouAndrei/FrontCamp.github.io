@@ -14,7 +14,7 @@ import {FcArticlesListComponent} from '../fc-main-page/fc-articles-list/fc-artic
 import {HttpService} from '../services/http.service';
 import { HttpClientModule } from '@angular/common/http';
 import {FcMainPageComponent} from '../fc-main-page/fc-main-page';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule
   ],

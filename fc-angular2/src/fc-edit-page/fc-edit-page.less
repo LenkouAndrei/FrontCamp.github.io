@@ -6,6 +6,12 @@
   margin: 0 auto;
 }
 
+fieldset {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
+
 .form-edit {
   display: flex;
   justify-content: space-around;
@@ -39,6 +45,10 @@
 
   &-save {
     .button(@background-color: @yellow-green);
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: @light-gary;
+    }
   }
   &-cancel {
     .button();
@@ -46,5 +56,17 @@
   &-save,
   &-cancel {
     text-decoration: none;
+  }
+}
+
+.required {
+  position: relative;
+
+  &::after {
+    content: ' *required';
+    position: absolute;
+    right: 0;
+    color: red;
+    font-size: 14px;
   }
 }

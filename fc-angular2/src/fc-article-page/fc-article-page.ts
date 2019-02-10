@@ -40,9 +40,6 @@ export class FcArticlePageComponent implements OnInit {
 
   public deleteAndLeave(): void {
     this.httpDatabaseService.deleteArticle(this.articleId)
-      .subscribe(comeBack => {
-        console.log('COME BACK ', comeBack);
-        this.router.navigate(['/articles']);
-      });
+      .subscribe(() => this.router.navigate(['/articles']));
   }
 }
