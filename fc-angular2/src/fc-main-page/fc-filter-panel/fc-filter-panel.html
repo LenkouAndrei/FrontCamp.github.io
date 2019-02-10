@@ -22,5 +22,5 @@
       >Only created by me
     </label>
   </div>
-  <button class="add-article" [routerLink]="'/edit'">Add Article</button>
+  <button class="add-article" [routerLink]="'/edit'" [queryParams]="{ pageName: 'Create Article' }">Add Article</button>
 </div>
