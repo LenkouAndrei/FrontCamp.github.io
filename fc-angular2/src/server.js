@@ -77,7 +77,7 @@ app.post('/:id', function(req, res, next) {
       },
     );
   } else if (req.body._method === 'delete') {
-    model.deleteOne({ }, function(err, result) {
+    model.deleteOne({ id: req.params.id }, function(err, result) {
       if (err) {
         res.send(err);
       } else {
