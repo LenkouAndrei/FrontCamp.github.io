@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ARTICLE_LIST} from '../fc-main-page/fc-articles-list/article-list.model';
 import {dateToArray} from '../utils/utils';
 import {HttpDatabaseService} from '../services/http.database.service';
-import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'fc-article-page',
@@ -12,6 +10,8 @@ import {take} from 'rxjs/operators';
 })
 export class FcArticlePageComponent implements OnInit {
   public article;
+  public databaseSource = 'Database Source';
+  private articleId;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -22,13 +22,9 @@ export class FcArticlePageComponent implements OnInit {
   public ngOnInit(): void {
     this.activateRoute.paramMap
       .subscribe(params => {
-        console.log(params);
-        this.httpDatabaseService.getArticle(params.get('id'))
-          .subscribe(article => {
-            console.log(article);
-            this.article = article;
-          });
-        // this.article = ARTICLE_LIST[+params.get('id')];
+        this.articleId = params.get('id');
+        this.httpDatabaseService.getArticle(this.articleId)
+          .subscribe(article => this.article = article);
       });
   }
 
@@ -43,7 +39,10 @@ export class FcArticlePageComponent implements OnInit {
   }
 
   public deleteAndLeave(): void {
-    console.log('Deleted!!!');
-    this.router.navigate(['/articles']);
+    this.httpDatabaseService.deleteArticle(this.articleId)
+      .subscribe(comeBack => {
+        console.log('COME BACK ', comeBack);
+        this.router.navigate(['/articles']);
+      });
   }
 }

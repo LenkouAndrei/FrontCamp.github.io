@@ -23,6 +23,7 @@ export class HttpDatabaseService {
 
   public deleteArticle(id: string): Observable<any> {
     const options = { params: new HttpParams().set('id', id) };
+    console.log(id);
     return this.http.post('http://localhost:8080/:id', {_method: 'delete'}, options);
   }
 
