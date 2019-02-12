@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {HttpService, INewsAPIArticle} from '../services/http.service';
+import {HttpService} from '../services/http.service';
 import {take, takeUntil} from 'rxjs/operators';
-import {Subject, combineLatest} from 'rxjs';
+import {combineLatest, Subject} from 'rxjs';
 import {HttpDatabaseService} from '../services/http.database.service';
 
 @Component({
@@ -20,6 +20,7 @@ export class FcMainPageComponent implements OnInit, OnDestroy {
   public isOnlyMyArticles;
   public articlesCopy;
   public readonly loadMore = 'Load More';
+  public wordsToFind: string;
 
   constructor(
     private httpService: HttpService,
@@ -54,16 +55,6 @@ export class FcMainPageComponent implements OnInit, OnDestroy {
     this.isOnlyMyArticles = isMyArticlesVisible;
   }
 
-  public filterByWords(words: string): void {
-    if (words === '') {
-      this.articlesList = this.articlesCopy;
-    } else {
-      this.articlesList = this.articlesList.filter(article => {
-        return this.isWordInArticleTitle(article, words) || this.isWordInArticleDescription(article, words);
-      });
-    }
-  }
-
   public loadMoreArticles() {
     this.currentLoadedArticlesAmount += this.loadedArticlesAmountAtTime;
     this.httpService.getArticlesBySourceId(this.currentNewsChannel, this.currentLoadedArticlesAmount)
@@ -72,14 +63,6 @@ export class FcMainPageComponent implements OnInit, OnDestroy {
         this.articlesList = [ ...this.articlesList, ...newsList];
         this.articlesCopy = this.articlesList;
       });
-  }
-
-  private isWordInArticleTitle(article: INewsAPIArticle, words: string): boolean {
-    return article.title.toUpperCase().indexOf(words.toUpperCase()) !== -1;
-  }
-
-  private isWordInArticleDescription(article: INewsAPIArticle, words: string): boolean {
-    return article.description.toUpperCase().indexOf(words.toUpperCase()) !== -1;
   }
 
   public ngOnDestroy() {

@@ -13,8 +13,8 @@
     </figcaption>
   </figure>
   <div class="article-date date">
-    <div class="date-day">{{getDate(article.publishedAt)}}</div>
-    <div class="date-time">{{getTime(article.publishedAt)}}</div>
+    <div class="date-day">{{article.publishedAt | date:'shortDate'}}</div>
+    <div class="date-time">{{article.publishedAt | date:'mediumTime'}}</div>
   </div>
   <div class="article-buttons buttons" *ngIf="article.isCreatedByMe">
     <a class="buttons-edit" [routerLink]="'/edit'" [queryParams]="{ pageName: 'Edit Article', id: article.id }">Edit</a>

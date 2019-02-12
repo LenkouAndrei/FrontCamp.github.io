@@ -15,6 +15,7 @@ import {HttpService} from '../services/http.service';
 import { HttpClientModule } from '@angular/common/http';
 import {FcMainPageComponent} from '../fc-main-page/fc-main-page';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FcFilterPipe} from '../fc-main-page/fc-filter-panel/fc-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FcArticlePageComponent,
     FcEditPageComponent,
     FcArticlesListComponent,
-    FcMainPageComponent
+    FcMainPageComponent,
+    FcFilterPipe
   ],
   imports: [
     BrowserModule,
