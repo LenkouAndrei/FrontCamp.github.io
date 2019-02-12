@@ -3,6 +3,17 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable, of} from 'rxjs';
 import {flatMap} from 'rxjs/operators';
 
+export interface IDatabaseArticle {
+    author: string;
+    description: string;
+    publishedAt: string;
+    title: string;
+    url: string;
+    urlToImage: string;
+    isCreatedByMe: boolean;
+    id: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })

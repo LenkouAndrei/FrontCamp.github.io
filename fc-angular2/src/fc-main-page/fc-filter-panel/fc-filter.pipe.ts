@@ -1,11 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import {INewsAPIArticle} from '../../services/http.service';
+import {IDatabaseArticle} from '../../services/http.database.service';
 
 @Pipe({
   name: 'feFilter'
 })
 export class FcFilterPipe implements PipeTransform {
-  public transform(value: any[], substringToFind: string | undefined): INewsAPIArticle[] {
+  public transform(value: (IDatabaseArticle | INewsAPIArticle)[], substringToFind: string | undefined): INewsAPIArticle[] {
     if (!substringToFind) {
       return value;
     } else {
