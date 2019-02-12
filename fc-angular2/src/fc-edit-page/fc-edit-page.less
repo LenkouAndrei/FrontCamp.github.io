@@ -1,0 +1,72 @@
+@import "../fc-shared-styles/mixins.less";
+@import "../fc-shared-styles/variables.less";
+
+.wrapper {
+  width: @wrapper-width;
+  margin: 0 auto;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
+
+.form-edit {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ls-list,
+.rs-list {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  label {
+    display: block;
+  }
+
+  input {
+    width: 400px;
+  }
+
+  textarea {
+    resize: none;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+
+  &-save {
+    .button(@background-color: @yellow-green);
+    &[disabled] {
+      cursor: not-allowed;
+      background-color: @light-gary;
+    }
+  }
+  &-cancel {
+    .button();
+  }
+  &-save,
+  &-cancel {
+    text-decoration: none;
+  }
+}
+
+.required {
+  position: relative;
+
+  &::after {
+    content: ' *required';
+    position: absolute;
+    right: 0;
+    color: red;
+    font-size: 14px;
+  }
+}

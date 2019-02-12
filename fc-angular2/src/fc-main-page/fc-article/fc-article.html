@@ -1,0 +1,23 @@
+<article class="article">
+  <figure class="article-info">
+    <div class="article-wrapper">
+      <img  class="article-image" src="{{article.urlToImage}}" alt="mock image" width="75">
+    </div>
+    <figcaption  class="article-description">
+      <h3 class="article-headline">{{article.title}}</h3>
+      <p class="article-text">{{article.description}}</p>
+      <a class="article-link" *ngIf="article.isCreatedByMe; else linkToSrc" [routerLink]="['/article', article.id]">Load more...</a>
+      <ng-template #linkToSrc>
+        <a class="article-link" href="{{article.url}}" target="_blank">Load more...</a>
+      </ng-template>
+    </figcaption>
+  </figure>
+  <div class="article-date date">
+    <div class="date-day">{{article.publishedAt | date:'shortDate'}}</div>
+    <div class="date-time">{{article.publishedAt | date:'mediumTime'}}</div>
+  </div>
+  <div class="article-buttons buttons" *ngIf="article.isCreatedByMe">
+    <a class="buttons-edit" [routerLink]="'/edit'" [queryParams]="{ pageName: 'Edit Article', id: article.id }">Edit</a>
+    <a class="buttons-delete" (click)="deleteItem()">Delete</a>
+  </div>
+</article>

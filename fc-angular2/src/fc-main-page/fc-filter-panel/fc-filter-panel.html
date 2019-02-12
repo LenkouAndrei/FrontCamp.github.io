@@ -1,0 +1,26 @@
+<div class="filters">
+  <select class="filters-select" id="source-selector" name="source"
+          [ngModel]="source"
+          (ngModelChange)="sourceChanged($event)"
+  >
+    <option [ngValue]="null">Select Channel</option>
+    <option
+      *ngFor="let source of (sourceList$ | async)"
+      [ngValue]="source"
+    >{{source.name}}</option>
+  </select>
+  <form class="filters-text" action="/">
+    <input type="text" placeholder="Type your text..." #wordsFilter [value]="wordsToFind">
+    <button class="filters-button" (click)="filterByWords(wordsFilter.value)">Filter</button>
+  </form>
+  <div class="filters-checkbox">
+    <label>
+      <input
+        type="checkbox"
+        [checked]="isOnlyMyVisible"
+        (change)="toggleCreatedByMe()"
+      >Only created by me
+    </label>
+  </div>
+  <button class="add-article" [routerLink]="'/edit'" [queryParams]="{ pageName: 'Create Article' }">Add Article</button>
+</div>

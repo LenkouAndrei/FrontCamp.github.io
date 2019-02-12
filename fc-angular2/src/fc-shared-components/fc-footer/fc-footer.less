@@ -1,0 +1,24 @@
+@import "../../fc-shared-styles/variables.less";
+
+.footer {
+  display: flex;
+  flex-flow: column;
+
+  &--main-content {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background-color: @brown-orange;
+  }
+
+  &-link, &-content {
+    color: @white;
+    font-size: 16px;
+  }
+
+  &-link {
+    text-decoration: none;
+  }
+}

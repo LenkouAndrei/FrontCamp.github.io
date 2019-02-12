@@ -1,0 +1,23 @@
+@import './variables.less';
+.button(@background-color: @default-btn-color, @color: @white, @padding-height: 5px, @font-size: 14px) {
+  background-color: @background-color;
+  border: none;
+  color: @color;
+  padding: @padding-height 10px;
+  font-size: @font-size;
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    background-color: darken(@background-color, 20);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.side-padding-zero() {
+  padding-right: 0;
+  padding-left: 0;
+}

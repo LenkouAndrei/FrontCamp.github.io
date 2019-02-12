@@ -1,0 +1,15 @@
+<fc-source-name
+  [sourceName]="currentNewsChannel"
+></fc-source-name>
+<fc-filter-panel
+  (onNewsSourceChange)="loadNews($event)"
+  (onMyArticlesVisibilityStateChange)="toggleMyArticlesVisibility($event)"
+  (onFindByWords)="wordsToFind = $event"
+></fc-filter-panel>
+<div class="wrapper">
+  <fc-articles-list
+    [isOnlyMyArticlesVisible]="isOnlyMyArticles"
+    [articles]="articlesList | feFilter:wordsToFind"
+  ></fc-articles-list>
+  <button class="footer-button" (click)="loadMoreArticles()">{{loadMore}}</button>
+</div>
